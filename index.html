@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Ricopollo La Serena | Pollo asado, costillar y papas fritas</title>
-<meta name="description" content="Pollo asado, costillar y colaciones en Av. Guillermo Ulriksen 1769, La Serena. Pide por WhatsApp y retira en el local, o pídelo con delivery. Abierto todos los días desde las 11:30.">
+<meta name="description" content="Pollo asado, costillar y colaciones en Av. Guillermo Ulriksen 1769, La Serena. Pide en la carta online o por WhatsApp, con retiro en el local o delivery. Abierto todos los días desde las 11:30.">
 <meta name="theme-color" content="#FFFFFF">
 <link rel="canonical" href="https://ricopollochile.cl/">
 <link rel="icon" href="img/icono-48.png" sizes="48x48" type="image/png">
@@ -13,7 +13,7 @@
 <meta property="og:locale" content="es_CL">
 <meta property="og:url" content="https://ricopollochile.cl/">
 <meta property="og:title" content="Ricopollo La Serena">
-<meta property="og:description" content="Pollo asado, costillar y colaciones en Av. Guillermo Ulriksen 1769, La Serena. Pide por WhatsApp y retira en el local, o pídelo con delivery. Abierto todos los días desde las 11:30.">
+<meta property="og:description" content="Pollo asado, costillar y colaciones en Av. Guillermo Ulriksen 1769, La Serena. Pide en la carta online o por WhatsApp, con retiro en el local o delivery. Abierto todos los días desde las 11:30.">
 <meta property="og:image" content="https://ricopollochile.cl/img/og.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -26,7 +26,7 @@
   --blanco:#FFFFFF; --crema:#FFF8E8; --crema-2:#FFEFCB; --linea:#EADFC8; --linea-fuerte:#D8C9AC;
   --tinta:#2B1D16; --tinta-suave:#66564A; --tinta-2:#43302A;
   --naranja:#D5552A; --naranja-oscuro:#B4431B; --amarillo:#F1B946;
-  --verde:#25D366; --verde-tinta:#06301A; --abierto:#1F9D55;
+  --verde:#25D366; --verde-tinta:#06301A; --abierto:#1F9D55; --crema-foto:#FFFEF1; --naranja-fuerte:#9C3915;
   --f-titulo:"Faustina", Georgia, "Times New Roman", serif;
   --f-texto:"Poppins", "Segoe UI", system-ui, -apple-system, Arial, sans-serif;
   color-scheme:light;
@@ -62,12 +62,16 @@ p{margin:0}
 .portada h1 em{font-style:normal;color:var(--naranja)}
 .bajada{margin-top:12px;font-size:1.05rem;color:var(--tinta-suave);max-width:34rem}
 .acciones{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+.ahorro{margin-top:12px;font-size:.92rem;color:var(--tinta-suave)}
+.ahorro b{color:var(--naranja-oscuro);font-weight:600}
 .boton{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:12px 20px;border-radius:12px;font-weight:600;font-size:1.02rem;text-decoration:none;border:2px solid transparent;cursor:pointer}
 .boton svg{width:22px;height:22px;flex:none}
 .boton.wsp{background:var(--verde);color:var(--verde-tinta)}
 .boton.wsp:hover{filter:brightness(1.05)}
 .boton.linea{border-color:var(--linea-fuerte);color:var(--tinta);background:var(--blanco)}
 .boton.linea:hover{border-color:var(--naranja);color:var(--naranja-oscuro)}
+.boton.principal{background:var(--naranja-oscuro);color:var(--blanco)}
+.boton.principal:hover{background:var(--naranja-fuerte)}
 .boton.oscuro{background:var(--tinta);color:var(--blanco)}
 .boton.oscuro:hover{background:var(--tinta-2)}
 
@@ -76,7 +80,7 @@ p{margin:0}
 .seccion > .ancho > h2{font-size:clamp(1.9rem, 7vw, 2.7rem)}
 .seccion .intro{margin-top:8px;color:var(--tinta-suave);max-width:38rem}
 .fotos{display:grid;grid-template-columns:repeat(2, minmax(0, 1fr));gap:12px;margin-top:20px;padding:0;list-style:none}
-.fotos li{background:var(--crema);border:1px solid var(--linea);border-radius:14px;overflow:hidden;display:flex;flex-direction:column}
+.fotos li{background:var(--crema-foto);border:1px solid var(--linea);border-radius:14px;overflow:hidden;display:flex;flex-direction:column}
 .fotos img{width:100%;aspect-ratio:4/3;object-fit:cover}
 .fotos .txt{padding:12px 12px 14px;display:flex;flex-direction:column;gap:4px;flex:1}
 .fotos .nombre{font-weight:600;line-height:1.3}
@@ -100,14 +104,16 @@ p{margin:0}
 .cartel p{max-width:36rem;font-weight:500}
 .cartel ul{margin:0;padding-left:1.1em;display:grid;gap:6px;max-width:36rem;font-weight:500}
 
-/* Cómo pedir */
-.pasos{list-style:none;margin:20px 0 0;padding:0;display:grid;gap:14px;counter-reset:paso}
-.pasos li{counter-increment:paso;display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:start}
-.pasos li::before{content:counter(paso);font-family:var(--f-titulo);font-weight:800;font-size:2.4rem;line-height:.9;color:var(--naranja);width:1.2em;text-align:center;font-variant-numeric:lining-nums}
-.pasos b{display:block;font-weight:600}
-.pasos span{color:var(--tinta-suave)}
-.entrega{margin-top:24px;padding:14px 16px;border:2px dashed var(--linea-fuerte);border-radius:12px;max-width:44rem;color:var(--tinta-suave);background:var(--crema)}
-.entrega b{color:var(--naranja-oscuro);font-weight:600}
+/* Formas de pedir: tres caminos, el propio va primero */
+.vias{list-style:none;margin:20px 0 0;padding:0;display:grid;gap:14px}
+.via{background:var(--crema);border:1px solid var(--linea);border-radius:14px;padding:18px 16px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.via h3{font-size:1.55rem}
+.via p{color:var(--tinta-suave)}
+.via > .boton,.via > .apps{margin-top:auto}
+.via.destacada{background:var(--blanco);border:2px solid var(--naranja)}
+.sello{align-self:flex-start;font-size:.74rem;letter-spacing:.08em;text-transform:uppercase;font-weight:600;color:var(--blanco);background:var(--naranja-oscuro);padding:3px 9px;border-radius:999px}
+.apps{display:flex;flex-wrap:wrap;gap:10px}
+.apps .boton{flex:1 1 130px}
 
 /* Horario y ubicación */
 .datos{display:grid;gap:26px;margin-top:20px}
@@ -128,7 +134,8 @@ p{margin:0}
 
 /* Botón fijo en el teléfono */
 .fijo{position:fixed;left:0;right:0;bottom:0;z-index:20;background:rgba(255,255,255,.96);border-top:1px solid var(--linea);padding-top:10px;padding-bottom:calc(10px + env(safe-area-inset-bottom, 0px));padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px))}
-.fijo .boton{width:100%}
+.fijo{display:grid;grid-template-columns:minmax(0, 1fr) minmax(0, 1fr);gap:10px}
+.fijo .boton{width:100%;padding-inline:10px}
 
 @media (min-width:860px){
   .portada{padding-block:36px 44px}
@@ -136,17 +143,17 @@ p{margin:0}
   .portada picture{order:2}
   .portada picture img{aspect-ratio:4/3}
   .pie{padding-block:26px 30px}
-  .fotos{grid-template-columns:repeat(4, minmax(0, 1fr));gap:16px}
+  .fotos{grid-template-columns:repeat(3, minmax(0, 1fr));gap:16px}
   .pizarra{grid-template-columns:repeat(2, minmax(0, 1fr));gap:30px 48px}
   .cartel .ancho{grid-template-columns:minmax(0, 1fr) auto;align-items:center;padding-block:40px}
   .cartel .texto{display:grid;gap:14px}
-  .pasos{grid-template-columns:repeat(3, minmax(0, 1fr));gap:28px}
+  .vias{grid-template-columns:repeat(3, minmax(0, 1fr));gap:18px}
   .datos{grid-template-columns:repeat(2, minmax(0, 1fr));gap:48px;align-items:start}
   .fijo{display:none}
 }
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 </style>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Restaurant", "name": "Ricopollo La Serena", "url": "https://ricopollochile.cl/", "image": "https://ricopollochile.cl/img/og.jpg", "telephone": "+56941520999", "priceRange": "$", "servesCuisine": ["Pollo asado", "Costillar", "Comida para llevar"], "address": {"@type": "PostalAddress", "streetAddress": "Av. Guillermo Ulriksen 1769", "addressLocality": "La Serena", "addressRegion": "Coquimbo", "addressCountry": "CL"}, "geo": {"@type": "GeoCoordinates", "latitude": -29.92455, "longitude": -71.236547}, "openingHoursSpecification": [{"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday"], "opens": "11:30", "closes": "17:30"}, {"@type": "OpeningHoursSpecification", "dayOfWeek": ["Tuesday", "Wednesday", "Thursday"], "opens": "11:30", "closes": "19:30"}, {"@type": "OpeningHoursSpecification", "dayOfWeek": ["Friday", "Saturday", "Sunday"], "opens": "11:30", "closes": "21:00"}], "sameAs": ["https://www.instagram.com/ricopollolaserena/"], "hasMap": "https://www.google.com/maps/search/?api=1&query=Ricopollo%20Asado%20La%20Serena&query_place_id=ChIJqxds4ovLkZYR5anmiG35FVk"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Restaurant", "name": "Ricopollo La Serena", "url": "https://ricopollochile.cl/", "image": "https://ricopollochile.cl/img/og.jpg", "telephone": "+56941520999", "priceRange": "$", "menu": "https://menu.fu.do/ricopollochile", "servesCuisine": ["Pollo asado", "Costillar", "Comida para llevar"], "address": {"@type": "PostalAddress", "streetAddress": "Av. Guillermo Ulriksen 1769", "addressLocality": "La Serena", "addressRegion": "Coquimbo", "addressCountry": "CL"}, "geo": {"@type": "GeoCoordinates", "latitude": -29.92455, "longitude": -71.236547}, "openingHoursSpecification": [{"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday"], "opens": "11:30", "closes": "17:30"}, {"@type": "OpeningHoursSpecification", "dayOfWeek": ["Tuesday", "Wednesday", "Thursday"], "opens": "11:30", "closes": "19:30"}, {"@type": "OpeningHoursSpecification", "dayOfWeek": ["Friday", "Saturday", "Sunday"], "opens": "11:30", "closes": "21:00"}], "sameAs": ["https://www.instagram.com/ricopollolaserena/"], "hasMap": "https://www.google.com/maps/search/?api=1&query=Ricopollo%20Asado%20La%20Serena&query_place_id=ChIJqxds4ovLkZYR5anmiG35FVk"}</script>
 </head>
 <body>
 <header class="barra">
@@ -169,14 +176,16 @@ p{margin:0}
       <div>
         <p class="donde">Av. Guillermo Ulriksen 1769 · La Serena</p>
         <h1>Pollo asado, costillar y <em>papas fritas</em></h1>
-        <p class="bajada">Pide por WhatsApp y pasa a retirar al local, o pídelo con delivery. Abrimos todos los días desde las 11:30.</p>
+        <p class="bajada">Pide en nuestra carta online o por WhatsApp. Retira en el local o recíbelo con delivery. Abrimos todos los días desde las 11:30.</p>
         <div class="acciones">
+          <a class="boton principal" href="https://menu.fu.do/ricopollochile" target="_blank" rel="noopener">Pedir online</a>
           <a class="boton wsp" href="https://wa.me/56941520999?text=Hola%2C%20quiero%20hacer%20un%20pedido%20para%20retirar" target="_blank" rel="noopener">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.3 7.4L3 20.5l1.7-5.4A8.4 8.4 0 1 1 21 11.5z"/></svg>
             Pedir por WhatsApp
           </a>
           <a class="boton linea" href="https://www.google.com/maps/search/?api=1&amp;query=Ricopollo%20Asado%20La%20Serena&amp;query_place_id=ChIJqxds4ovLkZYR5anmiG35FVk" target="_blank" rel="noopener">Cómo llegar</a>
         </div>
+        <p class="ahorro">En la carta online pagas <b>los precios del local</b>.</p>
       </div>
     </div>
   </section>
@@ -196,12 +205,20 @@ p{margin:0}
           <div class="txt"><span class="nombre">Pollo asado solo</span><span class="precio">$16.990</span></div>
         </li>
         <li>
-          <img src="img/colacion-pollo.jpg" width="800" height="600" loading="lazy" alt="Colación de pollo asado con papas fritas y arroz">
+          <img src="img/costillar-papas.jpg" width="800" height="600" loading="lazy" alt="Costillar asado sobre papas fritas">
+          <div class="txt"><span class="nombre">Costillar con papas fritas</span><span class="precio">$20.990</span></div>
+        </li>
+        <li>
+          <img src="img/colacion-pollo.jpg" width="800" height="600" loading="lazy" alt="Colación de pollo asado con papas fritas">
           <div class="txt"><span class="nombre">Colación de pollo</span><span class="precio">$5.950</span></div>
         </li>
         <li>
-          <img src="img/colacion-costillar.jpg" width="800" height="600" loading="lazy" alt="Colación de costillar con papas fritas y arroz">
+          <img src="img/colacion-costillar.jpg" width="800" height="600" loading="lazy" alt="Colación de costillar con papas fritas">
           <div class="txt"><span class="nombre">Colación de costillar</span><span class="precio">$7.950</span></div>
+        </li>
+        <li>
+          <img src="img/papas-familiares.jpg" width="800" height="600" loading="lazy" alt="Caja de papas fritas familiares">
+          <div class="txt"><span class="nombre">Papas fritas familiares</span><span class="precio">$5.990</span></div>
         </li>
       </ul>
 
@@ -261,12 +278,31 @@ p{margin:0}
   <section class="seccion" id="pedir" aria-labelledby="t-pedir">
     <div class="ancho">
       <h2 id="t-pedir">Cómo pedir</h2>
-      <ol class="pasos">
-        <li><div><b>Escríbenos por WhatsApp</b><span>Cuéntanos qué quieres y a qué hora pasas.</span></div></li>
-        <li><div><b>Te confirmamos el pedido</b><span>Te respondemos por el mismo chat.</span></div></li>
-        <li><div><b>Retiras y pagas en el local</b><span>Av. Guillermo Ulriksen 1769, La Serena.</span></div></li>
-      </ol>
-      <p class="entrega"><b>¿Lo quieres en tu casa o en la oficina?</b> También tenemos delivery: pídelo por WhatsApp, o búscanos en PedidosYa y Uber Eats.</p>
+      <p class="intro">Elige la forma que te acomode. Si pides directo con nosotros, pagas los precios del local.</p>
+      <ul class="vias">
+        <li class="via destacada">
+          <span class="sello">Precios del local</span>
+          <h3>Carta online</h3>
+          <p>Arma tu pedido y elige delivery o retiro en el local. Es nuestra propia carta, sin el recargo de las aplicaciones.</p>
+          <a class="boton principal" href="https://menu.fu.do/ricopollochile" target="_blank" rel="noopener">Pedir online</a>
+        </li>
+        <li class="via">
+          <h3>WhatsApp</h3>
+          <p>Escríbenos qué quieres y a qué hora pasas. Te confirmamos por el mismo chat.</p>
+          <a class="boton wsp" href="https://wa.me/56941520999?text=Hola%2C%20quiero%20hacer%20un%20pedido%20para%20retirar" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.3 7.4L3 20.5l1.7-5.4A8.4 8.4 0 1 1 21 11.5z"/></svg>
+            Pedir por WhatsApp
+          </a>
+        </li>
+        <li class="via">
+          <h3>Aplicaciones</h3>
+          <p>También nos encuentras en las aplicaciones de delivery.</p>
+          <div class="apps">
+            <a class="boton linea" href="https://www.pedidosya.cl/restaurantes/la-serena/ricopollo-1e1cda80-349f-4380-a7fa-977bd2220cc6-menu" target="_blank" rel="noopener">PedidosYa</a>
+            <a class="boton linea" href="https://www.ubereats.com/cl/store/ricopollo-la-serena/RFyJbNs0SsS0QA2FB52lrA" target="_blank" rel="noopener">Uber Eats</a>
+          </div>
+        </li>
+      </ul>
     </div>
   </section>
 
@@ -277,8 +313,12 @@ p{margin:0}
         <table class="horario" aria-label="Horario de atención">
           <tbody>
             <tr data-dias="1"><th scope="row">Lunes</th><td>11:30 a 17:30</td></tr>
-            <tr data-dias="2,3,4"><th scope="row">Martes a jueves</th><td>11:30 a 19:30</td></tr>
-            <tr data-dias="5,6,0"><th scope="row">Viernes a domingo</th><td>11:30 a 21:00</td></tr>
+            <tr data-dias="2"><th scope="row">Martes</th><td>11:30 a 19:30</td></tr>
+            <tr data-dias="3"><th scope="row">Miércoles</th><td>11:30 a 19:30</td></tr>
+            <tr data-dias="4"><th scope="row">Jueves</th><td>11:30 a 19:30</td></tr>
+            <tr data-dias="5"><th scope="row">Viernes</th><td>11:30 a 21:00</td></tr>
+            <tr data-dias="6"><th scope="row">Sábado</th><td>11:30 a 21:00</td></tr>
+            <tr data-dias="0"><th scope="row">Domingo</th><td>11:30 a 21:00</td></tr>
           </tbody>
         </table>
         <div class="lugar">
@@ -306,9 +346,10 @@ p{margin:0}
 </footer>
 
 <div class="fijo">
+  <a class="boton principal" href="https://menu.fu.do/ricopollochile" target="_blank" rel="noopener">Pedir online</a>
   <a class="boton wsp" href="https://wa.me/56941520999?text=Hola%2C%20quiero%20hacer%20un%20pedido%20para%20retirar" target="_blank" rel="noopener">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.3 7.4L3 20.5l1.7-5.4A8.4 8.4 0 1 1 21 11.5z"/></svg>
-    Pedir por WhatsApp
+    WhatsApp
   </a>
 </div>
 
