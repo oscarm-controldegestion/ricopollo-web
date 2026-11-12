@@ -1,0 +1,349 @@
+<!doctype html>
+<html lang="es-CL">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ricopollo La Serena | Pollo asado, costillar y papas fritas</title>
+<meta name="description" content="Pollo asado, costillar y colaciones en Av. Guillermo Ulriksen 1769, La Serena. Pide por WhatsApp y retira en el local, o pídelo con delivery. Abierto todos los días desde las 12:00.">
+<meta name="theme-color" content="#161412">
+<link rel="canonical" href="https://ricopollochile.cl/">
+<link rel="icon" href="img/icono-48.png" sizes="48x48" type="image/png">
+<link rel="apple-touch-icon" href="img/icono-180.png">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_CL">
+<meta property="og:url" content="https://ricopollochile.cl/">
+<meta property="og:title" content="Ricopollo La Serena">
+<meta property="og:description" content="Pollo asado, costillar y colaciones en Av. Guillermo Ulriksen 1769, La Serena. Pide por WhatsApp y retira en el local, o pídelo con delivery. Abierto todos los días desde las 12:00.">
+<meta property="og:image" content="https://ricopollochile.cl/img/og.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Poppins:wght@400;500;600&display=swap">
+<style>
+/* Pizarra de rotisería: una columna en el teléfono, la foto arriba, la carta con línea de puntos
+   y precio a la derecha, y el botón de WhatsApp siempre a mano. Un solo aspecto (oscuro), el de la marca. */
+:root{
+  --carbon:#161412; --carbon-2:#1F1C19; --carbon-3:#2A2622; --linea:#3D3832;
+  --crema:#FFF6E3; --crema-suave:#CFC5B2;
+  --amarillo:#F5B52A; --naranja:#E85828;
+  --verde:#25D366; --verde-tinta:#06301A;
+  --f-titulo:"Alfa Slab One", Rockwell, "Roboto Slab", Georgia, serif;
+  --f-texto:"Poppins", "Segoe UI", system-ui, -apple-system, Arial, sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--carbon);color:var(--crema);font-family:var(--f-texto);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+a:focus-visible,button:focus-visible{outline:3px solid var(--amarillo);outline-offset:3px;border-radius:6px}
+h1,h2,h3{font-family:var(--f-titulo);font-weight:400;line-height:1.12;margin:0;text-wrap:balance}
+p{margin:0}
+.ancho{max-width:1080px;margin-inline:auto;padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px))}
+
+/* Barra superior */
+.barra{padding-block:12px;border-bottom:1px solid var(--linea)}
+.barra .ancho{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.marca{display:flex;align-items:center;gap:10px;text-decoration:none;min-width:0}
+.marca img{width:46px;height:46px;border-radius:50%;background:#fff;flex:none}
+.marca b{font-family:var(--f-titulo);font-weight:400;font-size:1.25rem;letter-spacing:.02em}
+.marca span{display:block;font-size:.78rem;color:var(--crema-suave);letter-spacing:.08em;text-transform:uppercase}
+.estado{margin-left:auto;display:inline-flex;align-items:center;gap:8px;font-size:.85rem;font-weight:500;padding:7px 12px;border-radius:999px;background:var(--carbon-3);color:var(--crema)}
+.estado::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--crema-suave);flex:none}
+.estado.abierto::before{background:var(--verde)}
+.estado.cerrado::before{background:var(--naranja)}
+
+/* Portada */
+.portada{padding-block:20px 28px}
+.portada .ancho{display:grid;gap:20px}
+.portada picture img{width:100%;border-radius:14px;aspect-ratio:1200/628;object-fit:cover}
+.donde{font-size:.82rem;letter-spacing:.09em;text-transform:uppercase;color:var(--amarillo);font-weight:600}
+.portada h1{font-size:clamp(2rem, 8.4vw, 3.5rem);margin-top:8px}
+.portada h1 em{font-style:normal;color:var(--amarillo)}
+.bajada{margin-top:12px;font-size:1.05rem;color:var(--crema-suave);max-width:34rem}
+.acciones{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+.boton{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:12px 20px;border-radius:12px;font-weight:600;font-size:1.02rem;text-decoration:none;border:2px solid transparent;cursor:pointer}
+.boton svg{width:22px;height:22px;flex:none}
+.boton.wsp{background:var(--verde);color:var(--verde-tinta)}
+.boton.wsp:hover{filter:brightness(1.06)}
+.boton.linea{border-color:var(--linea);color:var(--crema);background:transparent}
+.boton.linea:hover{border-color:var(--amarillo);color:var(--amarillo)}
+.boton.oscuro{background:var(--carbon);color:var(--crema)}
+.boton.oscuro:hover{background:var(--carbon-3)}
+
+/* Fotos de la carta */
+.seccion{padding-block:34px}
+.seccion > .ancho > h2{font-size:clamp(1.6rem, 6vw, 2.3rem)}
+.seccion .intro{margin-top:8px;color:var(--crema-suave);max-width:38rem}
+.fotos{display:grid;grid-template-columns:repeat(2, minmax(0, 1fr));gap:12px;margin-top:20px;padding:0;list-style:none}
+.fotos li{background:var(--carbon-2);border-radius:14px;overflow:hidden;display:flex;flex-direction:column}
+.fotos img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.fotos .txt{padding:12px 12px 14px;display:flex;flex-direction:column;gap:4px;flex:1}
+.fotos .nombre{font-weight:600;line-height:1.3}
+.fotos .precio{font-family:var(--f-titulo);font-size:1.35rem;color:var(--amarillo);margin-top:auto;font-variant-numeric:tabular-nums}
+
+/* Pizarra de precios */
+.pizarra{display:grid;gap:26px;margin-top:26px}
+.grupo h3{font-size:1.25rem;color:var(--amarillo);padding-bottom:8px;border-bottom:2px solid var(--linea)}
+.grupo ul{list-style:none;margin:6px 0 0;padding:0}
+.grupo li{display:flex;align-items:baseline;gap:8px;padding-block:9px}
+.grupo .que{min-width:0}
+.grupo .que small{display:block;font-size:.84rem;color:var(--crema-suave);line-height:1.35}
+.grupo .puntos{flex:1;min-width:18px;border-bottom:2px dotted var(--linea);transform:translateY(-5px)}
+.grupo .cuanto{font-weight:600;font-variant-numeric:tabular-nums;white-space:nowrap}
+.nota{margin-top:18px;font-size:.84rem;color:var(--crema-suave)}
+
+/* Cartel de colaciones */
+.cartel{background:var(--amarillo);color:var(--carbon)}
+.cartel .ancho{padding-block:30px;display:grid;gap:14px}
+.cartel h2{font-size:clamp(1.7rem, 7vw, 2.6rem)}
+.cartel p{max-width:36rem;font-weight:500}
+.cartel ul{margin:0;padding-left:1.1em;display:grid;gap:6px;max-width:36rem}
+
+/* Cómo pedir */
+.pasos{list-style:none;margin:20px 0 0;padding:0;display:grid;gap:14px;counter-reset:paso}
+.pasos li{counter-increment:paso;display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:start}
+.pasos li::before{content:counter(paso);font-family:var(--f-titulo);font-size:2rem;line-height:1;color:var(--naranja);width:1.3em;text-align:center}
+.pasos b{display:block;font-weight:600}
+.pasos span{color:var(--crema-suave)}
+.entrega{margin-top:24px;padding:14px 16px;border:2px dashed var(--linea);border-radius:12px;max-width:44rem;color:var(--crema-suave)}
+.entrega b{color:var(--amarillo);font-weight:600}
+
+/* Horario y ubicación */
+.datos{display:grid;gap:26px;margin-top:20px}
+.horario{width:100%;border-collapse:collapse}
+.horario th,.horario td{text-align:left;padding:11px 10px;border-bottom:1px solid var(--linea);font-weight:400}
+.horario td{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.horario tr.hoy th,.horario tr.hoy td{background:var(--carbon-3);font-weight:600}
+.horario tr.hoy th::after{content:"hoy";margin-left:8px;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--carbon);background:var(--amarillo);padding:2px 7px;border-radius:999px;font-weight:600}
+.lugar address{font-style:normal;font-size:1.15rem;font-weight:600}
+.lugar p{color:var(--crema-suave);margin-top:6px}
+.lugar .telefono{color:var(--crema);font-weight:600;font-variant-numeric:tabular-nums;text-decoration:none}
+
+/* Pie */
+.pie{border-top:1px solid var(--linea);padding-block:26px 114px;color:var(--crema-suave);font-size:.9rem}
+.pie .ancho{display:grid;gap:12px}
+.pie nav{display:flex;flex-wrap:wrap;gap:8px 20px}
+.pie a{color:var(--crema)}
+
+/* Botón fijo en el teléfono */
+.fijo{position:fixed;left:0;right:0;bottom:0;z-index:20;background:rgba(22,20,18,.94);border-top:1px solid var(--linea);padding-top:10px;padding-bottom:calc(10px + env(safe-area-inset-bottom, 0px));padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px))}
+.fijo .boton{width:100%}
+
+@media (min-width:860px){
+  .portada{padding-block:36px 44px}
+  .portada .ancho{grid-template-columns:minmax(0, 1.05fr) minmax(0, .95fr);align-items:center;gap:40px}
+  .portada picture{order:2}
+  .portada picture img{aspect-ratio:4/3}
+  .pie{padding-block:26px 30px}
+  .fotos{grid-template-columns:repeat(4, minmax(0, 1fr));gap:16px}
+  .pizarra{grid-template-columns:repeat(2, minmax(0, 1fr));gap:30px 48px}
+  .cartel .ancho{grid-template-columns:minmax(0, 1fr) auto;align-items:center;padding-block:40px}
+  .cartel .texto{display:grid;gap:14px}
+  .pasos{grid-template-columns:repeat(3, minmax(0, 1fr));gap:28px}
+  .datos{grid-template-columns:repeat(2, minmax(0, 1fr));gap:48px;align-items:start}
+  .fijo{display:none}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Restaurant", "name": "Ricopollo La Serena", "url": "https://ricopollochile.cl/", "image": "https://ricopollochile.cl/img/og.jpg", "telephone": "+56941520999", "priceRange": "$", "servesCuisine": ["Pollo asado", "Costillar", "Comida para llevar"], "address": {"@type": "PostalAddress", "streetAddress": "Av. Guillermo Ulriksen 1769", "addressLocality": "La Serena", "addressRegion": "Coquimbo", "addressCountry": "CL"}, "geo": {"@type": "GeoCoordinates", "latitude": -29.92455, "longitude": -71.236547}, "openingHoursSpecification": [{"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday"], "opens": "12:00", "closes": "17:30"}, {"@type": "OpeningHoursSpecification", "dayOfWeek": ["Tuesday", "Wednesday", "Thursday"], "opens": "12:00", "closes": "19:30"}, {"@type": "OpeningHoursSpecification", "dayOfWeek": ["Friday", "Saturday", "Sunday"], "opens": "12:00", "closes": "21:00"}], "sameAs": ["https://www.instagram.com/ricopollolaserena/"], "hasMap": "https://www.google.com/maps/search/?api=1&query=Ricopollo%20Asado%20La%20Serena&query_place_id=ChIJqxds4ovLkZYR5anmiG35FVk"}</script>
+</head>
+<body>
+<header class="barra">
+  <div class="ancho">
+    <a class="marca" href="#inicio" aria-label="Ricopollo La Serena, inicio">
+      <img src="img/logo.png" width="46" height="46" alt="">
+      <div><b>Ricopollo</b><span>La Serena</span></div>
+    </a>
+    <p class="estado" id="estado">Abrimos todos los días a las 12:00</p>
+  </div>
+</header>
+
+<main id="inicio">
+  <section class="portada">
+    <div class="ancho">
+      <picture>
+        <source media="(min-width:860px)" srcset="img/hero-m.jpg" width="960" height="720">
+        <img src="img/hero-d.jpg" width="1200" height="628" alt="Pollo asado entero, dorado, sobre papas fritas recién hechas">
+      </picture>
+      <div>
+        <p class="donde">Av. Guillermo Ulriksen 1769 · La Serena</p>
+        <h1>Pollo asado, costillar y <em>papas fritas</em></h1>
+        <p class="bajada">Pide por WhatsApp y pasa a retirar al local, o pídelo con delivery. Abrimos todos los días desde las 12:00.</p>
+        <div class="acciones">
+          <a class="boton wsp" href="https://wa.me/56941520999?text=Hola%2C%20quiero%20hacer%20un%20pedido%20para%20retirar" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.3 7.4L3 20.5l1.7-5.4A8.4 8.4 0 1 1 21 11.5z"/></svg>
+            Pedir por WhatsApp
+          </a>
+          <a class="boton linea" href="https://www.google.com/maps/search/?api=1&amp;query=Ricopollo%20Asado%20La%20Serena&amp;query_place_id=ChIJqxds4ovLkZYR5anmiG35FVk" target="_blank" rel="noopener">Cómo llegar</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="seccion" id="carta" aria-labelledby="t-carta">
+    <div class="ancho">
+      <h2 id="t-carta">La carta</h2>
+      <p class="intro">Pollo y costillar asados cada día, con papas fritas hechas al momento.</p>
+
+      <ul class="fotos">
+        <li>
+          <img src="img/pollo-papas.jpg" width="800" height="600" loading="lazy" alt="Pollo asado entero sobre papas fritas">
+          <div class="txt"><span class="nombre">Pollo asado con papas fritas</span><span class="precio">$19.990</span></div>
+        </li>
+        <li>
+          <img src="img/pollo-solo.jpg" width="800" height="600" loading="lazy" alt="Pollo asado entero, solo">
+          <div class="txt"><span class="nombre">Pollo asado solo</span><span class="precio">$16.990</span></div>
+        </li>
+        <li>
+          <img src="img/colacion-pollo.jpg" width="800" height="600" loading="lazy" alt="Colación de pollo asado con papas fritas y arroz">
+          <div class="txt"><span class="nombre">Colación de pollo</span><span class="precio">$5.950</span></div>
+        </li>
+        <li>
+          <img src="img/colacion-costillar.jpg" width="800" height="600" loading="lazy" alt="Colación de costillar con papas fritas y arroz">
+          <div class="txt"><span class="nombre">Colación de costillar</span><span class="precio">$7.950</span></div>
+        </li>
+      </ul>
+
+      <div class="pizarra">
+        <div class="grupo">
+          <h3>Pollo asado</h3>
+          <ul>
+            <li><span class="que">Pollo entero con papas fritas<small>También con papas fritas y arroz</small></span><span class="puntos"></span><span class="cuanto">$19.990</span></li>
+            <li><span class="que">Medio pollo con papas fritas</span><span class="puntos"></span><span class="cuanto">$11.990</span></li>
+            <li><span class="que">Pollo entero solo</span><span class="puntos"></span><span class="cuanto">$16.990</span></li>
+            <li><span class="que">Medio pollo solo</span><span class="puntos"></span><span class="cuanto">$9.990</span></li>
+          </ul>
+        </div>
+        <div class="grupo">
+          <h3>Costillar</h3>
+          <ul>
+            <li><span class="que">Costillar con papas fritas<small>También con papas fritas y arroz</small></span><span class="puntos"></span><span class="cuanto">$20.990</span></li>
+            <li><span class="que">Costillar solo</span><span class="puntos"></span><span class="cuanto">$17.990</span></li>
+          </ul>
+        </div>
+        <div class="grupo">
+          <h3>Colaciones</h3>
+          <ul>
+            <li><span class="que">Colación de pollo<small>Con papas fritas, con arroz o con ambos</small></span><span class="puntos"></span><span class="cuanto">$5.950</span></li>
+            <li><span class="que">Colación de pollo con ensalada</span><span class="puntos"></span><span class="cuanto">$6.450</span></li>
+            <li><span class="que">Colación de costillar<small>Con papas fritas, con arroz o con ambos</small></span><span class="puntos"></span><span class="cuanto">$7.950</span></li>
+            <li><span class="que">Colación de costillar con ensalada</span><span class="puntos"></span><span class="cuanto">$8.450</span></li>
+          </ul>
+        </div>
+        <div class="grupo">
+          <h3>Para acompañar</h3>
+          <ul>
+            <li><span class="que">Papas fritas familiares</span><span class="puntos"></span><span class="cuanto">$5.990</span></li>
+            <li><span class="que">Media porción de papas fritas</span><span class="puntos"></span><span class="cuanto">$3.990</span></li>
+            <li><span class="que">Porción de arroz</span><span class="puntos"></span><span class="cuanto">$2.750</span></li>
+            <li><span class="que">Porción de ensalada</span><span class="puntos"></span><span class="cuanto">$2.100</span></li>
+          </ul>
+        </div>
+      </div>
+      <p class="nota">Precios en pesos chilenos, con IVA incluido. Vigentes a noviembre de 2026.</p>
+    </div>
+  </section>
+
+  <section class="cartel" id="colaciones" aria-labelledby="t-colaciones">
+    <div class="ancho">
+      <div class="texto">
+        <h2 id="t-colaciones">Colaciones desde $5.950</h2>
+        <ul>
+          <li>Pide por WhatsApp hasta las 11:45 y pasa a retirar desde las 12:00. Tu colación queda con tu nombre.</li>
+          <li>Para oficinas: 5 o más colaciones pedidas antes de las 11:00, listas desde las 12:00.</li>
+        </ul>
+      </div>
+      <a class="boton oscuro" href="https://wa.me/56941520999?text=Hola%2C%20quiero%20pedir%20colaciones" target="_blank" rel="noopener">Pedir colaciones</a>
+    </div>
+  </section>
+
+  <section class="seccion" id="pedir" aria-labelledby="t-pedir">
+    <div class="ancho">
+      <h2 id="t-pedir">Cómo pedir</h2>
+      <ol class="pasos">
+        <li><div><b>Escríbenos por WhatsApp</b><span>Cuéntanos qué quieres y a qué hora pasas.</span></div></li>
+        <li><div><b>Te confirmamos el pedido</b><span>Te respondemos por el mismo chat.</span></div></li>
+        <li><div><b>Retiras y pagas en el local</b><span>Av. Guillermo Ulriksen 1769, La Serena.</span></div></li>
+      </ol>
+      <p class="entrega"><b>¿Lo quieres en tu casa o en la oficina?</b> También tenemos delivery: pídelo por WhatsApp, o búscanos en PedidosYa y Uber Eats.</p>
+    </div>
+  </section>
+
+  <section class="seccion" id="local" aria-labelledby="t-local">
+    <div class="ancho">
+      <h2 id="t-local">Horario y ubicación</h2>
+      <div class="datos">
+        <table class="horario" aria-label="Horario de atención">
+          <tbody>
+            <tr data-dias="1"><th scope="row">Lunes</th><td>12:00 a 17:30</td></tr>
+            <tr data-dias="2,3,4"><th scope="row">Martes a jueves</th><td>12:00 a 19:30</td></tr>
+            <tr data-dias="5,6,0"><th scope="row">Viernes a domingo</th><td>12:00 a 21:00</td></tr>
+          </tbody>
+        </table>
+        <div class="lugar">
+          <address>Av. Guillermo Ulriksen 1769, La Serena</address>
+          <p>WhatsApp y teléfono: <a class="telefono" href="tel:+56941520999">+56 9 4152 0999</a></p>
+          <div class="acciones">
+            <a class="boton linea" href="https://www.google.com/maps/search/?api=1&amp;query=Ricopollo%20Asado%20La%20Serena&amp;query_place_id=ChIJqxds4ovLkZYR5anmiG35FVk" target="_blank" rel="noopener">Cómo llegar</a>
+            <a class="boton linea" href="https://www.instagram.com/ricopollolaserena/" target="_blank" rel="noopener">Instagram</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="pie">
+  <div class="ancho">
+    <nav aria-label="Enlaces">
+      <a href="https://www.instagram.com/ricopollolaserena/" target="_blank" rel="noopener">@ricopollolaserena</a>
+      <a href="https://search.google.com/local/writereview?placeid=ChIJqxds4ovLkZYR5anmiG35FVk" target="_blank" rel="noopener">Déjanos tu opinión en Google</a>
+      <a href="#carta">La carta</a>
+    </nav>
+    <p>Ricopollo La Serena · Av. Guillermo Ulriksen 1769 · En feriados el horario puede cambiar.</p>
+  </div>
+</footer>
+
+<div class="fijo">
+  <a class="boton wsp" href="https://wa.me/56941520999?text=Hola%2C%20quiero%20hacer%20un%20pedido%20para%20retirar" target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.3 7.4L3 20.5l1.7-5.4A8.4 8.4 0 1 1 21 11.5z"/></svg>
+    Pedir por WhatsApp
+  </a>
+</div>
+
+<script>
+(function () {
+  // Horario en minutos desde las 00:00, hora de Chile. 0 = domingo.
+  var HORARIO = { 1: [720, 1050], 2: [720, 1170], 3: [720, 1170], 4: [720, 1170], 5: [720, 1260], 6: [720, 1260], 0: [720, 1260] };
+  function hora(min) { var h = Math.floor(min / 60), m = min % 60; return h + ":" + (m < 10 ? "0" : "") + m; }
+  function ahoraEnChile() {
+    try {
+      var partes = new Intl.DateTimeFormat("en-US", { timeZone: "America/Santiago", weekday: "short", hour: "2-digit", minute: "2-digit", hour12: false }).formatToParts(new Date());
+      var o = {}; partes.forEach(function (p) { o[p.type] = p.value; });
+      var dia = { Sun: 0, Mon: 1, Tue: 2, Wed: 3, Thu: 4, Fri: 5, Sat: 6 }[o.weekday];
+      if (dia === undefined) return null;
+      return { dia: dia, min: (parseInt(o.hour, 10) % 24) * 60 + parseInt(o.minute, 10) };
+    } catch (e) { return null; }
+  }
+  function estadoPara(t) {
+    var h = HORARIO[t.dia];
+    if (t.min < h[0]) return { clase: "cerrado", texto: "Abre hoy a las " + hora(h[0]) };
+    if (t.min < h[1]) return { clase: "abierto", texto: "Abierto ahora · cierra a las " + hora(h[1]) };
+    return { clase: "cerrado", texto: "Cerrado · abre mañana a las " + hora(HORARIO[(t.dia + 1) % 7][0]) };
+  }
+  function pintar() {
+    var t = ahoraEnChile(); if (!t) return;
+    var e = estadoPara(t), chip = document.getElementById("estado");
+    if (chip) { chip.textContent = e.texto; chip.className = "estado " + e.clase; }
+    var filas = document.querySelectorAll(".horario tr[data-dias]");
+    for (var i = 0; i < filas.length; i++) {
+      var dias = filas[i].getAttribute("data-dias").split(",");
+      filas[i].className = dias.indexOf(String(t.dia)) >= 0 ? "hoy" : "";
+    }
+  }
+  pintar();
+  setInterval(pintar, 60000);
+})();
+</script>
+</body>
+</html>
