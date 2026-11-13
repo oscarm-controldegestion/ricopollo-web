@@ -52,10 +52,10 @@ p{margin:0}
 .marca img{width:76px;height:76px;border-radius:50%;background:var(--blanco);flex:none}
 .marca b{font-family:var(--f-titulo);font-weight:800;font-size:clamp(1.4rem, 6.4vw, 2rem);line-height:1.02}
 .marca span{display:block;font-size:.78rem;color:var(--tinta-suave);letter-spacing:.08em;text-transform:uppercase}
-.atajos{margin-left:auto;display:flex;gap:6px;flex:none}
-.atajos a{display:grid;place-items:center;width:38px;height:38px;border-radius:50%;border:1.5px solid var(--linea-fuerte);background:var(--blanco);color:var(--tinta);font-weight:600;font-size:.78rem;letter-spacing:.02em;text-decoration:none}
-.atajos a:hover{border-color:var(--naranja);color:var(--naranja-oscuro)}
-.atajos svg{width:18px;height:18px}
+.atajos{margin-left:auto;display:flex;gap:8px;flex:none}
+.atajos a{display:block;line-height:0;border-radius:10px;transition:transform .15s ease}
+.atajos a:hover{transform:translateY(-2px)}
+.atajos img{width:36px;height:36px}
 .estado{flex:0 1 auto;display:inline-flex;align-items:center;gap:8px;font-size:.85rem;font-weight:500;padding:8px 14px;border-radius:999px;background:var(--crema);border:1.5px solid var(--linea);color:var(--tinta)}
 .estado::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--linea-fuerte);flex:none}
 .estado.abierto::before{background:var(--abierto)}
@@ -182,12 +182,14 @@ p{margin:0}
 
 /* Redes sociales */
 .redes{list-style:none;margin:22px 0 0;padding:0;display:grid;gap:12px}
-.redes a{display:grid;grid-template-columns:minmax(0, 1fr) auto;align-items:center;gap:2px 14px;text-decoration:none;color:var(--blanco);border-radius:var(--r-l);padding:22px 20px;box-shadow:var(--sombra)}
+.redes a{display:grid;grid-template-columns:auto minmax(0, 1fr) auto;align-items:center;gap:2px 14px;text-decoration:none;color:var(--blanco);border-radius:var(--r-l);padding:22px 20px;box-shadow:var(--sombra)}
 .redes li:nth-child(1) a{background:var(--naranja-oscuro)}
 .redes li:nth-child(2) a{background:var(--tinta)}
 .redes b{font-family:var(--f-titulo);font-weight:800;font-size:1.8rem;line-height:1.1}
-.redes .cuenta{grid-column:1;overflow-wrap:anywhere;opacity:.92}
-.redes .seguir{grid-column:2;grid-row:1 / span 2;font-weight:600;background:var(--blanco);color:var(--tinta);border-radius:999px;padding:10px 18px}
+.redes img{grid-column:1;grid-row:1 / span 2;width:48px;height:48px}
+.redes b{grid-column:2}
+.redes .cuenta{grid-column:2;overflow-wrap:anywhere;opacity:.92}
+.redes .seguir{grid-column:3;grid-row:1 / span 2;font-weight:600;background:var(--blanco);color:var(--tinta);border-radius:999px;padding:10px 18px}
 .redes a:hover .seguir{background:var(--crema-2)}
 .redes a:focus-visible{outline-offset:4px}
 
@@ -229,7 +231,8 @@ p{margin:0}
   .marca img{width:92px;height:92px}
   .estado{margin-left:auto;order:2}
   .atajos{margin-left:0;order:3}
-  .atajos a{width:42px;height:42px;font-size:.84rem}
+  .atajos{gap:10px}
+  .atajos img{width:40px;height:40px}
   .portada{padding-block:40px 50px}
   .portada .ancho{grid-template-columns:minmax(0, 1.08fr) minmax(0, .92fr);align-items:center;gap:52px}
   .foto{order:2;margin:0 14px 14px 0}
@@ -264,11 +267,9 @@ p{margin:0}
       <div><b>Ricopollo</b><span>La Serena</span></div>
     </a>
     <nav class="atajos" aria-label="Accesos rápidos">
-      <a href="https://www.instagram.com/ricopollolaserena/" target="_blank" rel="noopener" title="Instagram" aria-label="Instagram de Ricopollo">IG</a>
-      <a href="https://www.facebook.com/profile.php?id=1068601289665249" target="_blank" rel="noopener" title="Facebook" aria-label="Facebook de Ricopollo">FB</a>
-      <a href="https://www.waze.com/ul?ll=-29.9245498%2C-71.2365466&amp;navigate=yes&amp;zoom=17" target="_blank" rel="noopener" title="Ir con Waze" aria-label="Ir con Waze">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 3 3 10.5l7.5 3L13.5 21z"/></svg>
-      </a>
+      <a href="https://www.instagram.com/ricopollolaserena/" target="_blank" rel="noopener" title="Instagram"><img src="img/ico-instagram.png" width="36" height="36" alt="Instagram de Ricopollo"></a>
+      <a href="https://www.facebook.com/profile.php?id=1068601289665249" target="_blank" rel="noopener" title="Facebook"><img src="img/ico-facebook.png" width="36" height="36" alt="Facebook de Ricopollo"></a>
+      <a href="https://www.waze.com/ul?ll=-29.9245498%2C-71.2365466&amp;navigate=yes&amp;zoom=17" target="_blank" rel="noopener" title="Ir con Waze"><img src="img/ico-waze.png" width="36" height="36" alt="Ir con Waze"></a>
     </nav>
     <p class="estado" id="estado">Abrimos todos los días a las 11:30</p>
   </div>
@@ -467,8 +468,8 @@ p{margin:0}
         <div class="texto">
           <h2 id="t-colaciones">Colaciones desde $5.950</h2>
           <ul>
-            <li>Pide por WhatsApp hasta las 11:45 y pasa a retirar desde las 12:00. Tu colación queda con tu nombre.</li>
-            <li>Para oficinas: 5 o más colaciones pedidas antes de las 11:00, listas desde las 12:00.</li>
+            <li>Pide por WhatsApp y pasa a retirar desde las 11:30. Tu colación queda con tu nombre.</li>
+            <li>Para oficinas: 5 o más colaciones pedidas antes de las 11:00, listas desde las 11:30.</li>
           </ul>
         </div>
         <a class="boton oscuro" href="https://wa.me/56941520999?text=Hola%2C%20quiero%20pedir%20colaciones" target="_blank" rel="noopener">Pedir colaciones</a>
@@ -513,9 +514,9 @@ p{margin:0}
       <p class="intro">Ahí mostramos el pollo recién salido del asador y avisamos las novedades.</p>
       <ul class="redes">
         <li><a href="https://www.instagram.com/ricopollolaserena/" target="_blank" rel="noopener">
-          <b>Instagram</b><span class="cuenta">@ricopollolaserena</span><span class="seguir">Seguir</span></a></li>
+          <img src="img/ico-instagram.png" width="48" height="48" alt="" loading="lazy"><b>Instagram</b><span class="cuenta">@ricopollolaserena</span><span class="seguir">Seguir</span></a></li>
         <li><a href="https://www.facebook.com/profile.php?id=1068601289665249" target="_blank" rel="noopener">
-          <b>Facebook</b><span class="cuenta">Ricopollo La Serena</span><span class="seguir">Seguir</span></a></li>
+          <img src="img/ico-facebook.png" width="48" height="48" alt="" loading="lazy"><b>Facebook</b><span class="cuenta">Ricopollo La Serena</span><span class="seguir">Seguir</span></a></li>
       </ul>
     </div>
   </section>
