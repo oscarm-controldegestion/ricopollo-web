@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Ricopollo La Serena | Pollo asado, costillar y papas fritas</title>
-<meta name="description" content="Pollo asado, costillar y colaciones en Av. Guillermo Ulriksen 1769, La Serena. Pide en la carta online o por WhatsApp, con retiro en el local o delivery. Abierto todos los días desde las 11:30.">
+<meta name="description" content="Pollo asado, costillar y colaciones en La Serena. Pide directo en la carta online o por WhatsApp: precios del local, sin comisiones de aplicaciones. Delivery o retiro, todos los días desde las 11:30.">
 <meta name="theme-color" content="#FFFFFF">
 <link rel="canonical" href="https://ricopollochile.cl/">
 <link rel="icon" href="img/icono-48.png" sizes="48x48" type="image/png">
@@ -13,7 +13,7 @@
 <meta property="og:locale" content="es_CL">
 <meta property="og:url" content="https://ricopollochile.cl/">
 <meta property="og:title" content="Ricopollo La Serena">
-<meta property="og:description" content="Pollo asado, costillar y colaciones en Av. Guillermo Ulriksen 1769, La Serena. Pide en la carta online o por WhatsApp, con retiro en el local o delivery. Abierto todos los días desde las 11:30.">
+<meta property="og:description" content="Pollo asado, costillar y colaciones en La Serena. Pide directo en la carta online o por WhatsApp: precios del local, sin comisiones de aplicaciones. Delivery o retiro, todos los días desde las 11:30.">
 <meta property="og:image" content="https://ricopollochile.cl/img/og.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -62,8 +62,6 @@ p{margin:0}
 .portada h1 em{font-style:normal;color:var(--naranja)}
 .bajada{margin-top:12px;font-size:1.05rem;color:var(--tinta-suave);max-width:34rem}
 .acciones{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
-.ahorro{margin-top:12px;font-size:.92rem;color:var(--tinta-suave)}
-.ahorro b{color:var(--naranja-oscuro);font-weight:600}
 .boton{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:12px 20px;border-radius:12px;font-weight:600;font-size:1.02rem;text-decoration:none;border:2px solid transparent;cursor:pointer}
 .boton svg{width:22px;height:22px;flex:none}
 .boton.wsp{background:var(--verde);color:var(--verde-tinta)}
@@ -74,6 +72,16 @@ p{margin:0}
 .boton.principal:hover{background:var(--naranja-fuerte)}
 .boton.oscuro{background:var(--tinta);color:var(--blanco)}
 .boton.oscuro:hover{background:var(--tinta-2)}
+
+/* Franja de pedido directo: el motivo para pedir en la carta propia, justo bajo la portada */
+.directo{background:var(--naranja-oscuro);color:var(--blanco)}
+.directo .ancho{padding-block:26px;display:grid;gap:16px}
+.directo .texto{display:grid;gap:10px}
+.directo h2{font-size:clamp(1.95rem, 7.6vw, 2.9rem)}
+.directo p{max-width:38rem;font-weight:500}
+.directo .boton{background:var(--blanco);color:var(--naranja-fuerte);justify-self:start}
+.directo .boton:hover{background:var(--crema-2)}
+.directo a:focus-visible{outline-color:var(--blanco)}
 
 /* Fotos de la carta */
 .seccion{padding-block:34px}
@@ -111,6 +119,7 @@ p{margin:0}
 .via p{color:var(--tinta-suave)}
 .via > .boton,.via > .apps{margin-top:auto}
 .via.destacada{background:var(--blanco);border:2px solid var(--naranja)}
+.sellos{display:flex;flex-wrap:wrap;gap:6px}
 .sello{align-self:flex-start;font-size:.74rem;letter-spacing:.08em;text-transform:uppercase;font-weight:600;color:var(--blanco);background:var(--naranja-oscuro);padding:3px 9px;border-radius:999px}
 .apps{display:flex;flex-wrap:wrap;gap:10px}
 .apps .boton{flex:1 1 130px}
@@ -145,11 +154,15 @@ p{margin:0}
   .pie{padding-block:26px 30px}
   .fotos{grid-template-columns:repeat(3, minmax(0, 1fr));gap:16px}
   .pizarra{grid-template-columns:repeat(2, minmax(0, 1fr));gap:30px 48px}
+  .directo .ancho{grid-template-columns:minmax(0, 1fr) auto;align-items:center;gap:32px;padding-block:34px}
   .cartel .ancho{grid-template-columns:minmax(0, 1fr) auto;align-items:center;padding-block:40px}
   .cartel .texto{display:grid;gap:14px}
   .vias{grid-template-columns:repeat(3, minmax(0, 1fr));gap:18px}
   .datos{grid-template-columns:repeat(2, minmax(0, 1fr));gap:48px;align-items:start}
   .fijo{display:none}
+}
+@media (max-width:559px){
+  .portada .acciones .boton,.directo .boton{width:100%}
 }
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 </style>
@@ -185,8 +198,17 @@ p{margin:0}
           </a>
           <a class="boton linea" href="https://www.google.com/maps/search/?api=1&amp;query=Ricopollo%20Asado%20La%20Serena&amp;query_place_id=ChIJqxds4ovLkZYR5anmiG35FVk" target="_blank" rel="noopener">Cómo llegar</a>
         </div>
-        <p class="ahorro">En la carta online pagas <b>los precios del local</b>.</p>
       </div>
+    </div>
+  </section>
+
+  <section class="directo" id="directo" aria-labelledby="t-directo">
+    <div class="ancho">
+      <div class="texto">
+        <h2 id="t-directo">Pide directo y ahórrate las comisiones</h2>
+        <p>En nuestra carta online pagas los precios del local, sin las comisiones de las aplicaciones de delivery. Tú eliges: delivery o retiro en el local.</p>
+      </div>
+      <a class="boton" href="https://menu.fu.do/ricopollochile" target="_blank" rel="noopener">Pedir online</a>
     </div>
   </section>
 
@@ -258,7 +280,7 @@ p{margin:0}
           </ul>
         </div>
       </div>
-      <p class="nota">Precios en pesos chilenos, con IVA incluido. Vigentes a noviembre de 2026.</p>
+      <p class="nota">Precios del local y de nuestra carta online, en pesos chilenos y con IVA incluido. Vigentes a noviembre de 2026.</p>
     </div>
   </section>
 
@@ -278,17 +300,17 @@ p{margin:0}
   <section class="seccion" id="pedir" aria-labelledby="t-pedir">
     <div class="ancho">
       <h2 id="t-pedir">Cómo pedir</h2>
-      <p class="intro">Elige la forma que te acomode. Si pides directo con nosotros, pagas los precios del local.</p>
+      <p class="intro">Si pides directo al local, pagas los precios del local y te ahorras las comisiones de las aplicaciones.</p>
       <ul class="vias">
         <li class="via destacada">
-          <span class="sello">Precios del local</span>
+          <div class="sellos"><span class="sello">Sin comisiones</span><span class="sello">Precios del local</span></div>
           <h3>Carta online</h3>
-          <p>Arma tu pedido y elige delivery o retiro en el local. Es nuestra propia carta, sin el recargo de las aplicaciones.</p>
+          <p>Arma tu pedido y elige delivery o retiro en el local. Es nuestra propia carta: pagas lo mismo que en el local.</p>
           <a class="boton principal" href="https://menu.fu.do/ricopollochile" target="_blank" rel="noopener">Pedir online</a>
         </li>
         <li class="via">
           <h3>WhatsApp</h3>
-          <p>Escríbenos qué quieres y a qué hora pasas. Te confirmamos por el mismo chat.</p>
+          <p>Escríbenos qué quieres y a qué hora pasas. Te confirmamos por el mismo chat, también a precios del local.</p>
           <a class="boton wsp" href="https://wa.me/56941520999?text=Hola%2C%20quiero%20hacer%20un%20pedido%20para%20retirar" target="_blank" rel="noopener">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.3 7.4L3 20.5l1.7-5.4A8.4 8.4 0 1 1 21 11.5z"/></svg>
             Pedir por WhatsApp
@@ -296,7 +318,7 @@ p{margin:0}
         </li>
         <li class="via">
           <h3>Aplicaciones</h3>
-          <p>También nos encuentras en las aplicaciones de delivery.</p>
+          <p>También nos encuentras en las aplicaciones de delivery. Ahí los precios incluyen la comisión de cada aplicación.</p>
           <div class="apps">
             <a class="boton linea" href="https://www.pedidosya.cl/restaurantes/la-serena/ricopollo-1e1cda80-349f-4380-a7fa-977bd2220cc6-menu" target="_blank" rel="noopener">PedidosYa</a>
             <a class="boton linea" href="https://www.ubereats.com/cl/store/ricopollo-la-serena/RFyJbNs0SsS0QA2FB52lrA" target="_blank" rel="noopener">Uber Eats</a>
