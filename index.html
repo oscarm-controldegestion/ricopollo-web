@@ -19,14 +19,18 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Faustina:wght@700;800&family=Poppins:wght@400;500;600&display=swap">
 <style>
-/* Pizarra de rotisería en claro: fondo blanco, una columna en el teléfono, la foto arriba, la carta con línea de puntos
-   y precio a la derecha, y el botón de WhatsApp siempre a mano. Colores y letras tomados de las piezas de Instagram
-   de la marca (crema, naranja, amarillo, café oscuro; títulos en serif gruesa, textos en Poppins). Un solo aspecto, claro, a propósito. */
+/* Rotisería en claro, con el lenguaje de las piezas de Instagram de la marca: paneles de esquinas grandes en naranja y
+   amarillo sobre blanco y crema, títulos en serif gruesa y textos en Poppins. Lo llamativo va en un solo lugar: el panel
+   naranja de la portada (pedir directo, sin comisiones) y la foto con su etiqueta de precio. Lo demás queda tranquilo.
+   Un solo aspecto, claro, a propósito. */
 :root{
-  --blanco:#FFFFFF; --crema:#FFF8E8; --crema-2:#FFEFCB; --linea:#EADFC8; --linea-fuerte:#D8C9AC;
+  --blanco:#FFFFFF; --crema:#FFF8E8; --crema-2:#FFEFCB; --crema-foto:#FFFEF1;
+  --linea:#EADFC8; --linea-fuerte:#D8C9AC;
   --tinta:#2B1D16; --tinta-suave:#66564A; --tinta-2:#43302A;
-  --naranja:#D5552A; --naranja-oscuro:#B4431B; --amarillo:#F1B946;
-  --verde:#25D366; --verde-tinta:#06301A; --abierto:#1F9D55; --crema-foto:#FFFEF1; --naranja-fuerte:#9C3915;
+  --naranja:#D5552A; --naranja-oscuro:#B4431B; --naranja-fuerte:#9C3915; --amarillo:#F1B946; --ambar:#E7A51F;
+  --verde:#25D366; --verde-tinta:#06301A; --abierto:#1F9D55;
+  --r-s:14px; --r-m:20px; --r-l:28px;
+  --sombra:0 16px 30px -20px rgba(43,29,22,.42);
   --f-titulo:"Faustina", Georgia, "Times New Roman", serif;
   --f-texto:"Poppins", "Segoe UI", system-ui, -apple-system, Arial, sans-serif;
   color-scheme:light;
@@ -36,33 +40,26 @@ html{scroll-behavior:smooth}
 body{margin:0;background:var(--blanco);color:var(--tinta);font-family:var(--f-texto);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
 img{display:block;max-width:100%;height:auto}
 a{color:inherit}
-a:focus-visible,button:focus-visible{outline:3px solid var(--naranja-oscuro);outline-offset:3px;border-radius:6px}
+a:focus-visible,button:focus-visible{outline:3px solid var(--naranja-oscuro);outline-offset:3px;border-radius:8px}
 h1,h2,h3{font-family:var(--f-titulo);font-weight:800;line-height:1.08;margin:0;text-wrap:balance;font-variant-numeric:lining-nums}
 p{margin:0}
 .ancho{max-width:1080px;margin-inline:auto;padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px))}
 
 /* Barra superior */
-.barra{padding-block:12px;border-bottom:1px solid var(--linea);background:var(--blanco)}
+.barra{padding-block:10px;border-bottom:1px solid var(--linea);background:var(--blanco)}
 .barra .ancho{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
-.marca{display:flex;align-items:center;gap:10px;text-decoration:none;min-width:0}
-.marca img{width:46px;height:46px;border-radius:50%;background:var(--blanco);flex:none}
-.marca b{font-family:var(--f-titulo);font-weight:800;font-size:1.45rem;line-height:1.05}
-.marca span{display:block;font-size:.76rem;color:var(--tinta-suave);letter-spacing:.08em;text-transform:uppercase}
-.estado{margin-left:auto;display:inline-flex;align-items:center;gap:8px;font-size:.85rem;font-weight:500;padding:7px 12px;border-radius:999px;background:var(--crema);border:1px solid var(--linea);color:var(--tinta)}
+.marca{display:flex;align-items:center;gap:12px;text-decoration:none;min-width:0}
+.marca img{width:58px;height:58px;border-radius:50%;background:var(--blanco);flex:none}
+.marca b{font-family:var(--f-titulo);font-weight:800;font-size:1.7rem;line-height:1.02}
+.marca span{display:block;font-size:.78rem;color:var(--tinta-suave);letter-spacing:.08em;text-transform:uppercase}
+.estado{margin-left:auto;display:inline-flex;align-items:center;gap:8px;font-size:.85rem;font-weight:500;padding:8px 14px;border-radius:999px;background:var(--crema);border:1.5px solid var(--linea);color:var(--tinta)}
 .estado::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--linea-fuerte);flex:none}
 .estado.abierto::before{background:var(--abierto)}
 .estado.cerrado::before{background:var(--naranja)}
 
-/* Portada */
-.portada{padding-block:20px 28px}
-.portada .ancho{display:grid;gap:20px}
-.portada picture img{width:100%;border-radius:14px;aspect-ratio:1200/628;object-fit:cover}
-.donde{font-size:.82rem;letter-spacing:.09em;text-transform:uppercase;color:var(--naranja-oscuro);font-weight:600}
-.portada h1{font-size:clamp(2.3rem, 9.4vw, 4rem);margin-top:8px}
-.portada h1 em{font-style:normal;color:var(--naranja)}
-.bajada{margin-top:12px;font-size:1.05rem;color:var(--tinta-suave);max-width:34rem}
-.acciones{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
-.boton{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:12px 20px;border-radius:12px;font-weight:600;font-size:1.02rem;text-decoration:none;border:2px solid transparent;cursor:pointer}
+/* Botones */
+.acciones{display:flex;flex-wrap:wrap;gap:10px}
+.boton{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:12px 22px;border-radius:var(--r-s);font-weight:600;font-size:1.02rem;text-decoration:none;border:2px solid transparent;cursor:pointer}
 .boton svg{width:22px;height:22px;flex:none}
 .boton.wsp{background:var(--verde);color:var(--verde-tinta)}
 .boton.wsp:hover{filter:brightness(1.05)}
@@ -72,31 +69,55 @@ p{margin:0}
 .boton.principal:hover{background:var(--naranja-fuerte)}
 .boton.oscuro{background:var(--tinta);color:var(--blanco)}
 .boton.oscuro:hover{background:var(--tinta-2)}
+.boton.claro{background:var(--blanco);color:var(--naranja-fuerte)}
+.boton.claro:hover{background:var(--crema-2)}
+.boton.borde{border-color:rgba(255,255,255,.8);color:var(--blanco);background:transparent}
+.boton.borde:hover{background:rgba(255,255,255,.14)}
 
-/* Franja de pedido directo: el motivo para pedir en la carta propia, justo bajo la portada */
-.directo{background:var(--naranja-oscuro);color:var(--blanco)}
-.directo .ancho{padding-block:26px;display:grid;gap:16px}
-.directo .texto{display:grid;gap:10px}
-.directo h2{font-size:clamp(1.95rem, 7.6vw, 2.9rem)}
-.directo p{max-width:38rem;font-weight:500}
-.directo .boton{background:var(--blanco);color:var(--naranja-fuerte);justify-self:start}
-.directo .boton:hover{background:var(--crema-2)}
-.directo a:focus-visible{outline-color:var(--blanco)}
+/* Estrellas: cinco siluetas rellenas hasta la nota (--v) */
+.estrellas{--v:5;display:inline-block;width:95px;height:18px;flex:none;background:linear-gradient(90deg, var(--ambar) calc(var(--v) / 5 * 100%), var(--linea-fuerte) 0);
+  -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2.4l3 6.2 6.8.9-5 4.7 1.3 6.7L12 17.7l-6.1 3.2 1.3-6.7-5-4.7 6.800-.9z'/%3E%3C/svg%3E") 0 50%/19px 18px repeat-x;
+  mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2.4l3 6.2 6.8.9-5 4.7 1.3 6.7L12 17.7l-6.1 3.2 1.3-6.7-5-4.7 6.800-.9z'/%3E%3C/svg%3E") 0 50%/19px 18px repeat-x}
+
+/* Portada: foto con etiqueta de precio y, antes de los botones, el motivo para pedir directo */
+.portada{padding-block:22px 34px}
+.portada .ancho{display:grid;gap:30px}
+.foto{position:relative;margin:0 10px 10px 0}
+.foto img{width:100%;aspect-ratio:1200/628;object-fit:cover;border-radius:var(--r-l);box-shadow:10px 10px 0 var(--amarillo)}
+.etiqueta{position:absolute;right:4px;bottom:-26px;width:112px;height:112px;border-radius:50%;background:var(--blanco);color:var(--tinta);display:grid;place-content:center;justify-items:center;gap:2px;text-align:center;text-decoration:none;transform:rotate(-8deg);box-shadow:0 0 0 4px var(--naranja-oscuro), var(--sombra)}
+.etiqueta small{font-size:.68rem;font-weight:600;line-height:1.15}
+.etiqueta b{font-family:var(--f-titulo);font-weight:800;font-size:1.32rem;line-height:1.05;color:var(--naranja-oscuro);font-variant-numeric:lining-nums}
+.portada h1{font-size:clamp(2.3rem, 9.4vw, 4rem)}
+.portada h1 em{font-style:normal;color:var(--naranja)}
+.aval{display:inline-flex;align-items:center;gap:9px;margin-top:12px;font-weight:500;font-size:.95rem;text-decoration:none}
+.aval:hover{text-decoration:underline}
+.pedido{margin-top:18px;background:var(--naranja-oscuro);color:var(--blanco);border-radius:var(--r-l);padding:24px 20px 20px;display:grid;gap:12px;box-shadow:var(--sombra)}
+.pedido h2{font-size:clamp(1.75rem, 6.8vw, 2.3rem)}
+.pedido p{font-weight:500}
+.pedido .acciones{margin-top:6px}
+.pedido a:focus-visible{outline-color:var(--blanco)}
+.llegar{margin-top:18px;display:grid;gap:12px}
+.llegar p{color:var(--tinta-suave)}
+.llegar p b{color:var(--tinta);font-weight:600}
+
+/* Secciones */
+.seccion{padding-block:38px}
+.seccion > .ancho > h2{font-size:clamp(1.9rem, 7vw, 2.7rem)}
+.seccion > .ancho > h2::after{content:"";display:block;width:64px;height:8px;border-radius:99px;background:var(--amarillo);margin-top:10px}
+.seccion .intro{margin-top:12px;color:var(--tinta-suave);max-width:38rem}
 
 /* Fotos de la carta */
-.seccion{padding-block:34px}
-.seccion > .ancho > h2{font-size:clamp(1.9rem, 7vw, 2.7rem)}
-.seccion .intro{margin-top:8px;color:var(--tinta-suave);max-width:38rem}
-.fotos{display:grid;grid-template-columns:repeat(2, minmax(0, 1fr));gap:12px;margin-top:20px;padding:0;list-style:none}
-.fotos li{background:var(--crema-foto);border:1px solid var(--linea);border-radius:14px;overflow:hidden;display:flex;flex-direction:column}
+.fotos{display:grid;grid-template-columns:repeat(2, minmax(0, 1fr));gap:12px;margin-top:22px;padding:0;list-style:none}
+.fotos li{background:var(--crema-foto);border:1.5px solid var(--linea);border-radius:var(--r-m);overflow:hidden;display:flex;flex-direction:column;box-shadow:var(--sombra)}
 .fotos img{width:100%;aspect-ratio:4/3;object-fit:cover}
-.fotos .txt{padding:12px 12px 14px;display:flex;flex-direction:column;gap:4px;flex:1}
+.fotos .txt{padding:10px 12px 14px;display:flex;flex-direction:column;align-items:flex-start;gap:10px;flex:1}
 .fotos .nombre{font-weight:600;line-height:1.3}
-.fotos .precio{font-family:var(--f-titulo);font-weight:800;font-size:1.55rem;line-height:1.1;color:var(--naranja);margin-top:auto;font-variant-numeric:lining-nums tabular-nums}
+.fotos .precio{margin-top:auto;font-family:var(--f-titulo);font-weight:800;font-size:1.3rem;line-height:1;color:var(--blanco);background:var(--naranja-oscuro);padding:8px 13px 7px;border-radius:999px;font-variant-numeric:lining-nums tabular-nums}
 
 /* Pizarra de precios */
-.pizarra{display:grid;gap:26px;margin-top:26px}
-.grupo h3{font-size:1.45rem;color:var(--naranja);padding-bottom:8px;border-bottom:2px solid var(--linea)}
+.pizarra{display:grid;gap:14px;margin-top:22px}
+.grupo{background:var(--crema);border-radius:var(--r-m);padding:20px 16px 10px}
+.grupo h3{font-size:1.5rem;color:var(--naranja-oscuro)}
 .grupo ul{list-style:none;margin:6px 0 0;padding:0}
 .grupo li{display:flex;align-items:baseline;gap:8px;padding-block:9px}
 .grupo .que{min-width:0}
@@ -106,73 +127,122 @@ p{margin:0}
 .nota{margin-top:18px;font-size:.84rem;color:var(--tinta-suave)}
 
 /* Cartel de colaciones */
-.cartel{background:var(--amarillo);color:var(--tinta)}
-.cartel .ancho{padding-block:30px;display:grid;gap:14px}
+.cartel{padding-block:6px 10px}
+.cartel .panel{background:var(--amarillo);color:var(--tinta);border-radius:var(--r-l);padding:28px 20px 24px;display:grid;gap:16px;box-shadow:var(--sombra)}
 .cartel h2{font-size:clamp(2rem, 7.6vw, 3rem)}
-.cartel p{max-width:36rem;font-weight:500}
 .cartel ul{margin:0;padding-left:1.1em;display:grid;gap:6px;max-width:36rem;font-weight:500}
+.cartel .texto{display:grid;gap:14px}
+
+/* Opiniones: las notas reales de cada sitio, una frase textual y lo que más se repite */
+.opiniones{background:var(--crema);margin-top:38px}
+.puntajes{list-style:none;margin:22px 0 0;padding:0;display:grid;grid-template-columns:repeat(3, minmax(0, 1fr));gap:10px}
+.puntajes a{display:grid;justify-items:center;align-content:start;gap:5px;height:100%;text-align:center;text-decoration:none;background:var(--blanco);border:1.5px solid var(--linea);border-radius:var(--r-m);padding:18px 6px 14px;box-shadow:var(--sombra)}
+.puntajes a:hover{border-color:var(--naranja)}
+.puntajes .num{font-family:var(--f-titulo);font-weight:800;font-size:clamp(2.3rem, 10vw, 3.1rem);line-height:1;color:var(--naranja-oscuro);font-variant-numeric:lining-nums}
+.puntajes .fuente{font-weight:600;line-height:1.2;margin-top:2px}
+.puntajes .cuantas{font-size:.8rem;color:var(--tinta-suave);line-height:1.3}
+.voces{display:grid;gap:22px;margin-top:22px}
+.cita{margin:0;background:var(--blanco);border:1.5px solid var(--linea);border-radius:var(--r-l);padding:22px 22px 20px;position:relative;box-shadow:var(--sombra)}
+.cita::before{content:"“";display:block;height:.52em;font-family:var(--f-titulo);font-weight:800;font-size:5.4rem;line-height:1;color:var(--amarillo)}
+.cita blockquote{margin:6px 0 0;font-family:var(--f-titulo);font-weight:800;font-size:clamp(1.65rem, 6.6vw, 2.3rem);line-height:1.14;text-wrap:balance}
+.cita figcaption{margin-top:12px;color:var(--tinta-suave);font-size:.92rem}
+.destacan{display:grid;gap:12px;align-content:start}
+.destacan h3{font-size:1.4rem}
+.chips{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.chips li{background:var(--blanco);border:1.5px solid var(--linea-fuerte);border-radius:999px;padding:7px 14px;font-weight:500;font-size:.92rem}
+.destacan .boton{justify-self:start;margin-top:6px}
+.al-dia{margin-top:18px;font-size:.84rem;color:var(--tinta-suave)}
 
 /* Formas de pedir: tres caminos, el propio va primero */
-.vias{list-style:none;margin:20px 0 0;padding:0;display:grid;gap:14px}
-.via{background:var(--crema);border:1px solid var(--linea);border-radius:14px;padding:18px 16px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.vias{list-style:none;margin:22px 0 0;padding:0;display:grid;gap:14px}
+.via{background:var(--crema);border:1.5px solid var(--linea);border-radius:var(--r-m);padding:20px 18px;display:flex;flex-direction:column;gap:10px;min-width:0}
 .via h3{font-size:1.55rem}
 .via p{color:var(--tinta-suave)}
 .via > .boton,.via > .apps{margin-top:auto}
-.via.destacada{background:var(--blanco);border:2px solid var(--naranja)}
+.via.destacada{background:var(--blanco);border:2px solid var(--naranja);box-shadow:var(--sombra)}
 .sellos{display:flex;flex-wrap:wrap;gap:6px}
-.sello{align-self:flex-start;font-size:.74rem;letter-spacing:.08em;text-transform:uppercase;font-weight:600;color:var(--blanco);background:var(--naranja-oscuro);padding:3px 9px;border-radius:999px}
+.sello{align-self:flex-start;font-size:.74rem;letter-spacing:.08em;text-transform:uppercase;font-weight:600;color:var(--blanco);background:var(--naranja-oscuro);padding:3px 10px;border-radius:999px}
 .apps{display:flex;flex-wrap:wrap;gap:10px}
 .apps .boton{flex:1 1 130px}
 
+/* Redes sociales */
+.redes{list-style:none;margin:22px 0 0;padding:0;display:grid;gap:12px}
+.redes a{display:grid;grid-template-columns:minmax(0, 1fr) auto;align-items:center;gap:2px 14px;text-decoration:none;color:var(--blanco);border-radius:var(--r-l);padding:22px 20px;box-shadow:var(--sombra)}
+.redes li:nth-child(1) a{background:var(--naranja-oscuro)}
+.redes li:nth-child(2) a{background:var(--tinta)}
+.redes b{font-family:var(--f-titulo);font-weight:800;font-size:1.8rem;line-height:1.1}
+.redes .cuenta{grid-column:1;overflow-wrap:anywhere;opacity:.92}
+.redes .seguir{grid-column:2;grid-row:1 / span 2;font-weight:600;background:var(--blanco);color:var(--tinta);border-radius:999px;padding:10px 18px}
+.redes a:hover .seguir{background:var(--crema-2)}
+.redes a:focus-visible{outline-offset:4px}
+
 /* Horario y ubicación */
-.datos{display:grid;gap:26px;margin-top:20px}
-.horario{width:100%;border-collapse:collapse}
-.horario th,.horario td{text-align:left;padding:11px 10px;border-bottom:1px solid var(--linea);font-weight:400}
+.datos{display:grid;gap:18px;margin-top:22px}
+.caja{background:var(--crema);border-radius:var(--r-m);padding:8px}
+.horario{width:100%;border-collapse:separate;border-spacing:0}
+.horario th,.horario td{text-align:left;padding:11px 12px;border-bottom:1px solid var(--linea);font-weight:400}
 .horario td{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
-.horario tr.hoy th,.horario tr.hoy td{background:var(--crema-2);font-weight:600}
-.horario tr.hoy th::after{content:"hoy";margin-left:8px;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--blanco);background:var(--naranja-oscuro);padding:2px 7px;border-radius:999px;font-weight:600}
-.lugar address{font-style:normal;font-size:1.15rem;font-weight:600}
-.lugar p{color:var(--tinta-suave);margin-top:6px}
+.horario tr:last-child th,.horario tr:last-child td{border-bottom-color:transparent}
+.horario tr.hoy th,.horario tr.hoy td{background:var(--amarillo);font-weight:600;border-bottom-color:transparent}
+.horario tr.hoy th{border-radius:12px 0 0 12px}
+.horario tr.hoy td{border-radius:0 12px 12px 0}
+.horario tr.hoy th::after{content:"hoy";margin-left:8px;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--blanco);background:var(--naranja-fuerte);padding:2px 8px;border-radius:999px;font-weight:600}
+.lugar{border:1.5px solid var(--linea);border-radius:var(--r-m);padding:22px 18px;display:grid;gap:8px;align-content:start}
+.lugar address{font-style:normal;font-family:var(--f-titulo);font-weight:800;font-size:1.5rem;line-height:1.15}
+.lugar p{color:var(--tinta-suave)}
 .lugar .telefono{color:var(--tinta);font-weight:600;font-variant-numeric:tabular-nums;text-decoration:none}
+.lugar .acciones{margin-top:8px}
 
 /* Pie */
-.pie{border-top:1px solid var(--linea);background:var(--crema);padding-block:26px 114px;color:var(--tinta-suave);font-size:.9rem}
+.pie{margin-top:38px;border-top:1px solid var(--linea);background:var(--crema);padding-block:26px 118px;color:var(--tinta-suave);font-size:.9rem}
 .pie .ancho{display:grid;gap:12px}
 .pie nav{display:flex;flex-wrap:wrap;gap:8px 20px}
 .pie a{color:var(--tinta)}
 
-/* Botón fijo en el teléfono */
-.fijo{position:fixed;left:0;right:0;bottom:0;z-index:20;background:rgba(255,255,255,.96);border-top:1px solid var(--linea);padding-top:10px;padding-bottom:calc(10px + env(safe-area-inset-bottom, 0px));padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px))}
-.fijo{display:grid;grid-template-columns:minmax(0, 1fr) minmax(0, 1fr);gap:10px}
+/* Botones fijos en el teléfono */
+.fijo{position:fixed;left:0;right:0;bottom:0;z-index:20;background:rgba(255,255,255,.97);border-top:1px solid var(--linea);border-radius:18px 18px 0 0;box-shadow:0 -12px 26px -20px rgba(43,29,22,.55);padding-top:10px;padding-bottom:calc(10px + env(safe-area-inset-bottom, 0px));padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px));display:grid;grid-template-columns:minmax(0, 1fr) minmax(0, 1fr);gap:10px}
 .fijo .boton{width:100%;padding-inline:10px}
 
-@media (min-width:860px){
-  .portada{padding-block:36px 44px}
-  .portada .ancho{grid-template-columns:minmax(0, 1.05fr) minmax(0, .95fr);align-items:center;gap:40px}
-  .portada picture{order:2}
-  .portada picture img{aspect-ratio:4/3}
-  .pie{padding-block:26px 30px}
-  .fotos{grid-template-columns:repeat(3, minmax(0, 1fr));gap:16px}
-  .pizarra{grid-template-columns:repeat(2, minmax(0, 1fr));gap:30px 48px}
-  .directo .ancho{grid-template-columns:minmax(0, 1fr) auto;align-items:center;gap:32px;padding-block:34px}
-  .cartel .ancho{grid-template-columns:minmax(0, 1fr) auto;align-items:center;padding-block:40px}
-  .cartel .texto{display:grid;gap:14px}
-  .vias{grid-template-columns:repeat(3, minmax(0, 1fr));gap:18px}
-  .datos{grid-template-columns:repeat(2, minmax(0, 1fr));gap:48px;align-items:start}
-  .fijo{display:none}
-}
 @media (max-width:559px){
-  .portada .acciones .boton,.directo .boton{width:100%}
+  .pedido .acciones .boton{width:100%}
+  .llegar .acciones{display:grid;grid-template-columns:minmax(0, 1fr) minmax(0, 1fr)}
+  .llegar .acciones .boton{padding-inline:8px}
+  .lugar .acciones{display:grid;grid-template-columns:minmax(0, 1fr) minmax(0, 1fr)}
+  .lugar .acciones .boton{padding-inline:8px}
+}
+@media (min-width:860px){
+  .portada{padding-block:40px 50px}
+  .portada .ancho{grid-template-columns:minmax(0, 1.08fr) minmax(0, .92fr);align-items:center;gap:52px}
+  .foto{order:2;margin:0 14px 14px 0}
+  .foto img{aspect-ratio:4/3;box-shadow:14px 14px 0 var(--amarillo)}
+  .etiqueta{right:auto;left:-28px;bottom:-24px;width:132px;height:132px}
+  .etiqueta small{font-size:.78rem}
+  .etiqueta b{font-size:1.6rem}
+  .pedido{padding:28px 26px 26px}
+  .pie{padding-block:26px 30px}
+  .fotos{grid-template-columns:repeat(3, minmax(0, 1fr));gap:18px}
+  .fotos .txt{padding:12px 16px 18px}
+  .pizarra{grid-template-columns:repeat(2, minmax(0, 1fr));gap:18px}
+  .grupo{padding:24px 24px 14px}
+  .cartel .panel{grid-template-columns:minmax(0, 1fr) auto;align-items:center;padding:36px 36px 34px}
+  .puntajes{gap:18px}
+  .voces{grid-template-columns:minmax(0, 1.15fr) minmax(0, .85fr);gap:28px;align-items:center}
+  .cita{padding:30px 34px 28px}
+  .vias{grid-template-columns:repeat(3, minmax(0, 1fr));gap:18px}
+  .redes{grid-template-columns:repeat(2, minmax(0, 1fr));gap:18px}
+  .redes a{padding:28px 26px}
+  .datos{grid-template-columns:repeat(2, minmax(0, 1fr));gap:28px;align-items:start}
+  .fijo{display:none}
 }
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 </style>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Restaurant", "name": "Ricopollo La Serena", "url": "https://ricopollochile.cl/", "image": "https://ricopollochile.cl/img/og.jpg", "telephone": "+56941520999", "priceRange": "$", "menu": "https://menu.fu.do/ricopollochile", "servesCuisine": ["Pollo asado", "Costillar", "Comida para llevar"], "address": {"@type": "PostalAddress", "streetAddress": "Av. Guillermo Ulriksen 1769", "addressLocality": "La Serena", "addressRegion": "Coquimbo", "addressCountry": "CL"}, "geo": {"@type": "GeoCoordinates", "latitude": -29.92455, "longitude": -71.236547}, "openingHoursSpecification": [{"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday"], "opens": "11:30", "closes": "17:30"}, {"@type": "OpeningHoursSpecification", "dayOfWeek": ["Tuesday", "Wednesday", "Thursday"], "opens": "11:30", "closes": "19:30"}, {"@type": "OpeningHoursSpecification", "dayOfWeek": ["Friday", "Saturday", "Sunday"], "opens": "11:30", "closes": "21:00"}], "sameAs": ["https://www.instagram.com/ricopollolaserena/"], "hasMap": "https://www.google.com/maps/search/?api=1&query=Ricopollo%20Asado%20La%20Serena&query_place_id=ChIJqxds4ovLkZYR5anmiG35FVk"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Restaurant", "name": "Ricopollo La Serena", "url": "https://ricopollochile.cl/", "image": "https://ricopollochile.cl/img/og.jpg", "telephone": "+56941520999", "priceRange": "$", "menu": "https://menu.fu.do/ricopollochile", "servesCuisine": ["Pollo asado", "Costillar", "Comida para llevar"], "address": {"@type": "PostalAddress", "streetAddress": "Av. Guillermo Ulriksen 1769", "addressLocality": "La Serena", "addressRegion": "Coquimbo", "addressCountry": "CL"}, "geo": {"@type": "GeoCoordinates", "latitude": -29.92455, "longitude": -71.236547}, "openingHoursSpecification": [{"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday"], "opens": "11:30", "closes": "17:30"}, {"@type": "OpeningHoursSpecification", "dayOfWeek": ["Tuesday", "Wednesday", "Thursday"], "opens": "11:30", "closes": "19:30"}, {"@type": "OpeningHoursSpecification", "dayOfWeek": ["Friday", "Saturday", "Sunday"], "opens": "11:30", "closes": "21:00"}], "sameAs": ["https://www.instagram.com/ricopollolaserena/", "https://www.facebook.com/profile.php?id=1068601289665249"], "hasMap": "https://www.google.com/maps/search/?api=1&query=Ricopollo%20Asado%20La%20Serena&query_place_id=ChIJqxds4ovLkZYR5anmiG35FVk"}</script>
 </head>
 <body>
 <header class="barra">
   <div class="ancho">
     <a class="marca" href="#inicio" aria-label="Ricopollo La Serena, inicio">
-      <img src="img/logo.png" width="46" height="46" alt="">
+      <img src="img/logo.png" width="58" height="58" alt="">
       <div><b>Ricopollo</b><span>La Serena</span></div>
     </a>
     <p class="estado" id="estado">Abrimos todos los días a las 11:30</p>
@@ -182,33 +252,35 @@ p{margin:0}
 <main id="inicio">
   <section class="portada">
     <div class="ancho">
-      <picture>
-        <source media="(min-width:860px)" srcset="img/hero-m.jpg" width="960" height="720">
-        <img src="img/hero-d.jpg" width="1200" height="628" alt="Pollo asado entero, dorado, sobre papas fritas recién hechas">
-      </picture>
+      <div class="foto">
+        <picture>
+          <source media="(min-width:860px)" srcset="img/hero-m.jpg" width="960" height="720">
+          <img src="img/hero-d.jpg" width="1200" height="628" alt="Pollo asado entero, dorado, sobre papas fritas recién hechas">
+        </picture>
+        <a class="etiqueta" href="#carta"><small>Pollo asado<br>con papas</small><b>$19.990</b></a>
+      </div>
       <div>
-        <p class="donde">Av. Guillermo Ulriksen 1769 · La Serena</p>
         <h1>Pollo asado, costillar y <em>papas fritas</em></h1>
-        <p class="bajada">Pide en nuestra carta online o por WhatsApp. Retira en el local o recíbelo con delivery. Abrimos todos los días desde las 11:30.</p>
-        <div class="acciones">
-          <a class="boton principal" href="https://menu.fu.do/ricopollochile" target="_blank" rel="noopener">Pedir online</a>
-          <a class="boton wsp" href="https://wa.me/56941520999?text=Hola%2C%20quiero%20hacer%20un%20pedido%20para%20retirar" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.3 7.4L3 20.5l1.7-5.4A8.4 8.4 0 1 1 21 11.5z"/></svg>
-            Pedir por WhatsApp
-          </a>
-          <a class="boton linea" href="https://www.google.com/maps/search/?api=1&amp;query=Ricopollo%20Asado%20La%20Serena&amp;query_place_id=ChIJqxds4ovLkZYR5anmiG35FVk" target="_blank" rel="noopener">Cómo llegar</a>
+        <a class="aval" href="#opiniones"><span class="estrellas" style="--v:4.8" aria-hidden="true"></span>4,8 de 5 en Google</a>
+        <div class="pedido">
+          <h2>Pide directo y ahórrate las comisiones</h2>
+          <p>En nuestra carta online pagas los precios del local, sin las comisiones de las aplicaciones de delivery. Tú eliges: delivery o retiro.</p>
+          <div class="acciones">
+            <a class="boton claro" href="https://menu.fu.do/ricopollochile" target="_blank" rel="noopener">Pedir online</a>
+            <a class="boton borde" href="https://wa.me/56941520999?text=Hola%2C%20quiero%20hacer%20un%20pedido%20para%20retirar" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.3 7.4L3 20.5l1.7-5.4A8.4 8.4 0 1 1 21 11.5z"/></svg>
+              Pedir por WhatsApp
+            </a>
+          </div>
+        </div>
+        <div class="llegar">
+          <p><b>Av. Guillermo Ulriksen 1769, La Serena.</b> Abrimos todos los días desde las 11:30.</p>
+          <div class="acciones">
+            <a class="boton linea" href="https://www.google.com/maps/search/?api=1&amp;query=Ricopollo%20Asado%20La%20Serena&amp;query_place_id=ChIJqxds4ovLkZYR5anmiG35FVk" target="_blank" rel="noopener">Cómo llegar</a>
+            <a class="boton linea" href="https://www.waze.com/ul?ll=-29.9245498%2C-71.2365466&amp;navigate=yes&amp;zoom=17" target="_blank" rel="noopener">Ir con Waze</a>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
-
-  <section class="directo" id="directo" aria-labelledby="t-directo">
-    <div class="ancho">
-      <div class="texto">
-        <h2 id="t-directo">Pide directo y ahórrate las comisiones</h2>
-        <p>En nuestra carta online pagas los precios del local, sin las comisiones de las aplicaciones de delivery. Tú eliges: delivery o retiro en el local.</p>
-      </div>
-      <a class="boton" href="https://menu.fu.do/ricopollochile" target="_blank" rel="noopener">Pedir online</a>
     </div>
   </section>
 
@@ -286,14 +358,47 @@ p{margin:0}
 
   <section class="cartel" id="colaciones" aria-labelledby="t-colaciones">
     <div class="ancho">
-      <div class="texto">
-        <h2 id="t-colaciones">Colaciones desde $5.950</h2>
-        <ul>
-          <li>Pide por WhatsApp hasta las 11:45 y pasa a retirar desde las 12:00. Tu colación queda con tu nombre.</li>
-          <li>Para oficinas: 5 o más colaciones pedidas antes de las 11:00, listas desde las 12:00.</li>
-        </ul>
+      <div class="panel">
+        <div class="texto">
+          <h2 id="t-colaciones">Colaciones desde $5.950</h2>
+          <ul>
+            <li>Pide por WhatsApp hasta las 11:45 y pasa a retirar desde las 12:00. Tu colación queda con tu nombre.</li>
+            <li>Para oficinas: 5 o más colaciones pedidas antes de las 11:00, listas desde las 12:00.</li>
+          </ul>
+        </div>
+        <a class="boton oscuro" href="https://wa.me/56941520999?text=Hola%2C%20quiero%20pedir%20colaciones" target="_blank" rel="noopener">Pedir colaciones</a>
       </div>
-      <a class="boton oscuro" href="https://wa.me/56941520999?text=Hola%2C%20quiero%20pedir%20colaciones" target="_blank" rel="noopener">Pedir colaciones</a>
+    </div>
+  </section>
+
+  <section class="seccion opiniones" id="opiniones" aria-labelledby="t-opiniones">
+    <div class="ancho">
+      <h2 id="t-opiniones">Lo que dicen los clientes</h2>
+      <p class="intro">Las notas que nos han puesto quienes ya pidieron. Toca una para leer las opiniones.</p>
+      <ul class="puntajes">
+        <li><a href="https://search.google.com/local/reviews?placeid=ChIJqxds4ovLkZYR5anmiG35FVk" target="_blank" rel="noopener">
+          <span class="num">4,8</span><span class="estrellas" style="--v:4.8" aria-hidden="true"></span><span class="fuente">Google</span><span class="cuantas">14 opiniones</span></a></li>
+        <li><a href="https://www.ubereats.com/cl/store/ricopollo-la-serena/RFyJbNs0SsS0QA2FB52lrA" target="_blank" rel="noopener">
+          <span class="num">4,8</span><span class="estrellas" style="--v:4.8" aria-hidden="true"></span><span class="fuente">Uber Eats</span><span class="cuantas">más de 130 calificaciones</span></a></li>
+        <li><a href="https://www.pedidosya.cl/restaurantes/la-serena/ricopollo-1e1cda80-349f-4380-a7fa-977bd2220cc6-menu" target="_blank" rel="noopener">
+          <span class="num">4,7</span><span class="estrellas" style="--v:4.7" aria-hidden="true"></span><span class="fuente">PedidosYa</span><span class="cuantas">56 opiniones</span></a></li>
+      </ul>
+      <div class="voces">
+        <figure class="cita">
+          <blockquote>Definitivamente el mejor pollo de la zona</blockquote>
+          <figcaption>Jean Manuel R., opinión en Google</figcaption>
+        </figure>
+        <div class="destacan">
+          <h3>Lo que más destacan</h3>
+          <ul class="chips">
+            <li>Pollo sabroso y bien cocido</li>
+            <li>Papas fritas crujientes</li>
+            <li>Porción contundente</li>
+          </ul>
+          <a class="boton linea" href="https://search.google.com/local/writereview?placeid=ChIJqxds4ovLkZYR5anmiG35FVk" target="_blank" rel="noopener">Déjanos tu opinión en Google</a>
+        </div>
+      </div>
+      <p class="al-dia">Notas sobre un máximo de 5, al 12 de noviembre de 2026.</p>
     </div>
   </section>
 
@@ -328,27 +433,42 @@ p{margin:0}
     </div>
   </section>
 
+  <section class="seccion" id="redes" aria-labelledby="t-redes">
+    <div class="ancho">
+      <h2 id="t-redes">Síguenos en redes</h2>
+      <p class="intro">Ahí mostramos el pollo recién salido del asador y avisamos las novedades.</p>
+      <ul class="redes">
+        <li><a href="https://www.instagram.com/ricopollolaserena/" target="_blank" rel="noopener">
+          <b>Instagram</b><span class="cuenta">@ricopollolaserena</span><span class="seguir">Seguir</span></a></li>
+        <li><a href="https://www.facebook.com/profile.php?id=1068601289665249" target="_blank" rel="noopener">
+          <b>Facebook</b><span class="cuenta">Ricopollo La Serena</span><span class="seguir">Seguir</span></a></li>
+      </ul>
+    </div>
+  </section>
+
   <section class="seccion" id="local" aria-labelledby="t-local">
     <div class="ancho">
       <h2 id="t-local">Horario y ubicación</h2>
       <div class="datos">
-        <table class="horario" aria-label="Horario de atención">
-          <tbody>
-            <tr data-dias="1"><th scope="row">Lunes</th><td>11:30 a 17:30</td></tr>
-            <tr data-dias="2"><th scope="row">Martes</th><td>11:30 a 19:30</td></tr>
-            <tr data-dias="3"><th scope="row">Miércoles</th><td>11:30 a 19:30</td></tr>
-            <tr data-dias="4"><th scope="row">Jueves</th><td>11:30 a 19:30</td></tr>
-            <tr data-dias="5"><th scope="row">Viernes</th><td>11:30 a 21:00</td></tr>
-            <tr data-dias="6"><th scope="row">Sábado</th><td>11:30 a 21:00</td></tr>
-            <tr data-dias="0"><th scope="row">Domingo</th><td>11:30 a 21:00</td></tr>
-          </tbody>
-        </table>
+        <div class="caja">
+          <table class="horario" aria-label="Horario de atención">
+            <tbody>
+              <tr data-dias="1"><th scope="row">Lunes</th><td>11:30 a 17:30</td></tr>
+              <tr data-dias="2"><th scope="row">Martes</th><td>11:30 a 19:30</td></tr>
+              <tr data-dias="3"><th scope="row">Miércoles</th><td>11:30 a 19:30</td></tr>
+              <tr data-dias="4"><th scope="row">Jueves</th><td>11:30 a 19:30</td></tr>
+              <tr data-dias="5"><th scope="row">Viernes</th><td>11:30 a 21:00</td></tr>
+              <tr data-dias="6"><th scope="row">Sábado</th><td>11:30 a 21:00</td></tr>
+              <tr data-dias="0"><th scope="row">Domingo</th><td>11:30 a 21:00</td></tr>
+            </tbody>
+          </table>
+        </div>
         <div class="lugar">
           <address>Av. Guillermo Ulriksen 1769, La Serena</address>
           <p>WhatsApp y teléfono: <a class="telefono" href="tel:+56941520999">+56 9 4152 0999</a></p>
           <div class="acciones">
             <a class="boton linea" href="https://www.google.com/maps/search/?api=1&amp;query=Ricopollo%20Asado%20La%20Serena&amp;query_place_id=ChIJqxds4ovLkZYR5anmiG35FVk" target="_blank" rel="noopener">Cómo llegar</a>
-            <a class="boton linea" href="https://www.instagram.com/ricopollolaserena/" target="_blank" rel="noopener">Instagram</a>
+            <a class="boton linea" href="https://www.waze.com/ul?ll=-29.9245498%2C-71.2365466&amp;navigate=yes&amp;zoom=17" target="_blank" rel="noopener">Ir con Waze</a>
           </div>
         </div>
       </div>
@@ -359,7 +479,8 @@ p{margin:0}
 <footer class="pie">
   <div class="ancho">
     <nav aria-label="Enlaces">
-      <a href="https://www.instagram.com/ricopollolaserena/" target="_blank" rel="noopener">@ricopollolaserena</a>
+      <a href="https://www.instagram.com/ricopollolaserena/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.facebook.com/profile.php?id=1068601289665249" target="_blank" rel="noopener">Facebook</a>
       <a href="https://search.google.com/local/writereview?placeid=ChIJqxds4ovLkZYR5anmiG35FVk" target="_blank" rel="noopener">Déjanos tu opinión en Google</a>
       <a href="#carta">La carta</a>
     </nav>
