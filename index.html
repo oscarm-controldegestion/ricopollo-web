@@ -134,7 +134,7 @@ p{margin:0}
 .cartel .texto{display:grid;gap:14px}
 
 /* Opiniones: las notas reales de cada sitio, una frase textual y lo que más se repite */
-.opiniones{background:var(--crema);margin-top:38px}
+.opiniones{background:var(--crema)}
 .puntajes{list-style:none;margin:22px 0 0;padding:0;display:grid;grid-template-columns:repeat(3, minmax(0, 1fr));gap:10px}
 .puntajes a{display:grid;justify-items:center;align-content:start;gap:5px;height:100%;text-align:center;text-decoration:none;background:var(--blanco);border:1.5px solid var(--linea);border-radius:var(--r-m);padding:18px 6px 14px;box-shadow:var(--sombra)}
 .puntajes a:hover{border-color:var(--naranja)}
@@ -284,6 +284,37 @@ p{margin:0}
     </div>
   </section>
 
+  <section class="seccion opiniones" id="opiniones" aria-labelledby="t-opiniones">
+    <div class="ancho">
+      <h2 id="t-opiniones">Lo que dicen los clientes</h2>
+      <p class="intro">Las notas que nos han puesto quienes ya pidieron. Toca una para leer las opiniones.</p>
+      <ul class="puntajes">
+        <li><a href="https://search.google.com/local/reviews?placeid=ChIJqxds4ovLkZYR5anmiG35FVk" target="_blank" rel="noopener">
+          <span class="num">4,8</span><span class="estrellas" style="--v:4.8" aria-hidden="true"></span><span class="fuente">Google</span><span class="cuantas">14 opiniones</span></a></li>
+        <li><a href="https://www.ubereats.com/cl/store/ricopollo-la-serena/RFyJbNs0SsS0QA2FB52lrA" target="_blank" rel="noopener">
+          <span class="num">4,8</span><span class="estrellas" style="--v:4.8" aria-hidden="true"></span><span class="fuente">Uber Eats</span><span class="cuantas">más de 130 calificaciones</span></a></li>
+        <li><a href="https://www.pedidosya.cl/restaurantes/la-serena/ricopollo-1e1cda80-349f-4380-a7fa-977bd2220cc6-menu" target="_blank" rel="noopener">
+          <span class="num">4,7</span><span class="estrellas" style="--v:4.7" aria-hidden="true"></span><span class="fuente">PedidosYa</span><span class="cuantas">56 opiniones</span></a></li>
+      </ul>
+      <div class="voces">
+        <figure class="cita">
+          <blockquote>Definitivamente el mejor pollo de la zona</blockquote>
+          <figcaption>Jean Manuel R., opinión en Google</figcaption>
+        </figure>
+        <div class="destacan">
+          <h3>Lo que más destacan</h3>
+          <ul class="chips">
+            <li>Pollo sabroso y bien cocido</li>
+            <li>Papas fritas crujientes</li>
+            <li>Porción contundente</li>
+          </ul>
+          <a class="boton linea" href="https://search.google.com/local/writereview?placeid=ChIJqxds4ovLkZYR5anmiG35FVk" target="_blank" rel="noopener">Déjanos tu opinión en Google</a>
+        </div>
+      </div>
+      <p class="al-dia">Notas sobre un máximo de 5, al 12 de noviembre de 2026.</p>
+    </div>
+  </section>
+
   <section class="seccion" id="carta" aria-labelledby="t-carta">
     <div class="ancho">
       <h2 id="t-carta">La carta</h2>
@@ -368,37 +399,6 @@ p{margin:0}
         </div>
         <a class="boton oscuro" href="https://wa.me/56941520999?text=Hola%2C%20quiero%20pedir%20colaciones" target="_blank" rel="noopener">Pedir colaciones</a>
       </div>
-    </div>
-  </section>
-
-  <section class="seccion opiniones" id="opiniones" aria-labelledby="t-opiniones">
-    <div class="ancho">
-      <h2 id="t-opiniones">Lo que dicen los clientes</h2>
-      <p class="intro">Las notas que nos han puesto quienes ya pidieron. Toca una para leer las opiniones.</p>
-      <ul class="puntajes">
-        <li><a href="https://search.google.com/local/reviews?placeid=ChIJqxds4ovLkZYR5anmiG35FVk" target="_blank" rel="noopener">
-          <span class="num">4,8</span><span class="estrellas" style="--v:4.8" aria-hidden="true"></span><span class="fuente">Google</span><span class="cuantas">14 opiniones</span></a></li>
-        <li><a href="https://www.ubereats.com/cl/store/ricopollo-la-serena/RFyJbNs0SsS0QA2FB52lrA" target="_blank" rel="noopener">
-          <span class="num">4,8</span><span class="estrellas" style="--v:4.8" aria-hidden="true"></span><span class="fuente">Uber Eats</span><span class="cuantas">más de 130 calificaciones</span></a></li>
-        <li><a href="https://www.pedidosya.cl/restaurantes/la-serena/ricopollo-1e1cda80-349f-4380-a7fa-977bd2220cc6-menu" target="_blank" rel="noopener">
-          <span class="num">4,7</span><span class="estrellas" style="--v:4.7" aria-hidden="true"></span><span class="fuente">PedidosYa</span><span class="cuantas">56 opiniones</span></a></li>
-      </ul>
-      <div class="voces">
-        <figure class="cita">
-          <blockquote>Definitivamente el mejor pollo de la zona</blockquote>
-          <figcaption>Jean Manuel R., opinión en Google</figcaption>
-        </figure>
-        <div class="destacan">
-          <h3>Lo que más destacan</h3>
-          <ul class="chips">
-            <li>Pollo sabroso y bien cocido</li>
-            <li>Papas fritas crujientes</li>
-            <li>Porción contundente</li>
-          </ul>
-          <a class="boton linea" href="https://search.google.com/local/writereview?placeid=ChIJqxds4ovLkZYR5anmiG35FVk" target="_blank" rel="noopener">Déjanos tu opinión en Google</a>
-        </div>
-      </div>
-      <p class="al-dia">Notas sobre un máximo de 5, al 12 de noviembre de 2026.</p>
     </div>
   </section>
 
