@@ -615,5 +615,15 @@ p{margin:0}
   }
 })();
 </script>
+<script>
+/* Medicion de pedidos (Google Ads): cuenta los toques en "Pedir online" (carta) y en "Pedir por WhatsApp" */
+document.addEventListener('click', function (e) {
+  var a = e.target && e.target.closest ? e.target.closest('a[href]') : null;
+  if (!a || typeof gtag !== 'function') return;
+  var h = a.getAttribute('href') || '';
+  if (h.indexOf('wa.me/') > -1 || h.indexOf('whatsapp.com') > -1) gtag('event', 'conversion', { send_to: 'AW-17826223038/0_RMCOztjrgdEL6nmrRC' });
+  else if (h.indexOf('menu.fu.do') > -1) gtag('event', 'conversion', { send_to: 'AW-17826223038/gKFhCO_tjrgdEL6nmrRC' });
+}, true);
+</script>
 </body>
 </html>
